@@ -7,3 +7,14 @@ class Participant:
 
   def like(self, participant):
     self.likes.append(participant)
+
+  def dislike(self, participant):
+    self.dislikes.append(participant)
+
+class Cohort:
+
+  def __init__(self):
+    self.participants = []
+
+  def addParticipant(self, participant):
+    self.participants.append(participant)
