@@ -31,6 +31,13 @@ class participantTestCase(unittest.TestCase):
     self.participant.addToGroup(group)
     self.assertIs(self.participant.group, group)
 
+  def test_paricipant_get_random_name(self):
+    participant1 = compat.Participant.createRandomParticipant()
+    participant2 = compat.Participant.createRandomParticipant()
+    self.assertIsInstance(participant1.name, str)
+    self.assertIsInstance(participant2.name, str)
+    self.assertNotEqual(participant1.name, participant2.name)
+
 class cohortTestCase(unittest.TestCase):
   def setUp(self):
     self.cohort = compat.Cohort()
@@ -76,4 +83,11 @@ class groupTestCase(unittest.TestCase):
   def test_group_getScore_works_with_two_participants(self):
     self.group.addParticipant(self.participant1)
     self.group.addParticipant(self.participant2)
+
+class arrangementTestCase(unittest.TestCase):
+  def setUp(self):
+    self.arrangement = compat.Arrangement
+
+  def test_arrangement_exists(self):
+    self.assertIs(self.arrangement, compat.Arrangement)
 

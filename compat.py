@@ -1,4 +1,10 @@
+import names
+
 class Participant:
+
+  @staticmethod
+  def createRandomParticipant():
+    return Participant(names.get_full_name().encode('ascii'))
 
   def __init__(self, name):
     self.name = name
@@ -19,6 +25,10 @@ class Cohort:
 
   def __init__(self):
     self.participants = []
+    self.groups = []
+
+  def addGroup(self, group):
+    self.groups.append(group)
 
   def addParticipant(self, participant):
     self.participants.append(participant)
@@ -38,3 +48,8 @@ class Group:
 
   def getScore(self):
     return 'false'
+
+class Arrangement:
+  
+  def __init__(self):
+    self.groups = []
