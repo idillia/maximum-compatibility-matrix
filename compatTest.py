@@ -26,6 +26,11 @@ class participantTestCase(unittest.TestCase):
     self.assertEqual(len(self.participant.dislikes), 1)
     self.assertIsInstance(self.participant.dislikes[0], compat.Participant)
 
+  def test_participant_can_be_added_to_group(self):
+    group = compat.Group()
+    self.participant.addToGroup(group)
+    self.assertIs(self.participant.group, group)
+
 class cohortTestCase(unittest.TestCase):
   def setUp(self):
     self.cohort = compat.Cohort()
@@ -41,6 +46,14 @@ class cohortTestCase(unittest.TestCase):
     self.cohort.addParticipant(participant)
     self.assertEqual(self.cohort.participants[0].name, 'Eric')
 
+  def test_cohort_can_add_participant_to_group(self):
+    participant = compat.Participant('eric')
+    group = compat.Group()
+    group2 = compat.Group()
+    self.cohort.addParticipantToGroup(participant, group)
+    self.assertIs(group.participants[0], participant)
+    self.assertIs(participant.group, group)
+
 class groupTestCase(unittest.TestCase):
   def setUp(self):
     self.group = compat.Group()
@@ -53,11 +66,13 @@ class groupTestCase(unittest.TestCase):
   def test_group_can_add_participant(self):
     self.group.addParticipant(self.participant1)
     self.assertEqual(len(self.group.participants), 1)
-    
+
+  @unittest.skip("Skipping getscore")
   def test_group_getScore_returns_int(self):
     score = self.group.getScore()
     self.assertIsInstance(score, int)
 
+  @unittest.skip("Skipping getscore")
   def test_group_getScore_works_with_two_participants(self):
     self.group.addParticipant(self.participant1)
     self.group.addParticipant(self.participant2)
