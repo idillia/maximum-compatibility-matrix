@@ -40,3 +40,25 @@ class cohortTestCase(unittest.TestCase):
     participant = compat.Participant('Eric')
     self.cohort.addParticipant(participant)
     self.assertEqual(self.cohort.participants[0].name, 'Eric')
+
+class groupTestCase(unittest.TestCase):
+  def setUp(self):
+    self.group = compat.Group()
+    self.participant1 = compat.Participant('eric')
+    self.participant2 = compat.Participant('john')
+
+  def test_group_exists(self):
+    self.assertIsInstance(self.group, compat.Group)
+
+  def test_group_can_add_participant(self):
+    self.group.addParticipant(self.participant1)
+    self.assertEqual(len(self.group.participants), 1)
+    
+  def test_group_getScore_returns_int(self):
+    score = self.group.getScore()
+    self.assertIsInstance(score, int)
+
+  def test_group_getScore_works_with_two_participants(self):
+    self.group.addParticipant(self.participant1)
+    self.group.addParticipant(self.participant2)
+

@@ -18,3 +18,14 @@ class Cohort:
 
   def addParticipant(self, participant):
     self.participants.append(participant)
+
+class Group:
+
+  def __init__(self):
+    self.participants = []
+
+  def addParticipant(self, participant):
+    self.participants.append(participant)
+    
+  def getScore(self):
+    return 'false'
