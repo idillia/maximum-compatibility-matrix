@@ -60,14 +60,6 @@ class cohortTestCase(unittest.TestCase):
     self.cohort.addParticipant(participant)
     self.assertEqual(self.cohort.participants[0].name, 'Eric')
 
-  def test_cohort_can_add_participant_to_group(self):
-    participant = compat.Participant('eric')
-    group = compat.Group()
-    group2 = compat.Group()
-    self.cohort.addParticipantToGroup(participant, group)
-    self.assertIs(group.participants[0], participant)
-    self.assertIs(participant.group, group)
-
 class groupTestCase(unittest.TestCase):
   def setUp(self):
     self.group = compat.Group()
@@ -119,4 +111,12 @@ class arrangementTestCase(unittest.TestCase):
     participant = compat.Participant('eric')
     self.arrangement.addParticipant(participant)
     self.assertIsInstance(self.arrangement.participants[0], compat.Participant)
+
+  def test_arrangement_can_add_participant_to_group(self):
+    participant = compat.Participant('eric')
+    group = compat.Group()
+    group2 = compat.Group()
+    self.arrangement.addParticipantToGroup(participant, group)
+    self.assertIs(group.participants[0], participant)
+    self.assertIs(participant.group, group)
 
