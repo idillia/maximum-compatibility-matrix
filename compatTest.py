@@ -31,7 +31,14 @@ class participantTestCase(unittest.TestCase):
     self.participant.addToGroup(group)
     self.assertIs(self.participant.group, group)
 
-  def test_paricipant_get_random_name(self):
+  def test_participant_can_be_removed_from_group(self):
+    group = compat.Group()
+    self.participant.addToGroup(group)
+    self.assertEqual(group, self.participant.group)
+    self.participant.removeFromGroup()
+    self.assertEqual(self.participant.group, None)
+
+  def test_paricipant_create_random(self):
     participant1 = compat.Participant.createRandomParticipant()
     participant2 = compat.Participant.createRandomParticipant()
     self.assertIsInstance(participant1.name, str)
@@ -74,6 +81,13 @@ class groupTestCase(unittest.TestCase):
     self.group.addParticipant(self.participant1)
     self.assertEqual(len(self.group.participants), 1)
 
+  def test_group_can_remove_participant(self):
+    self.group = compat.Group()
+    self.group.addParticipant(self.participant1)
+    self.assertEqual(len(self.group.participants), 1)
+    self.group.removeParticipant(self.participant1)
+    self.assertEqual(len(self.group.participants), 0)
+
   @unittest.skip("Skipping getscore")
   def test_group_getScore_returns_int(self):
     score = self.group.getScore()
@@ -86,8 +100,23 @@ class groupTestCase(unittest.TestCase):
 
 class arrangementTestCase(unittest.TestCase):
   def setUp(self):
-    self.arrangement = compat.Arrangement
+    self.arrangement = compat.Arrangement()
 
   def test_arrangement_exists(self):
-    self.assertIs(self.arrangement, compat.Arrangement)
+    self.assertIsInstance(self.arrangement, compat.Arrangement)
+
+  def test_arrangement_has_groups(self):
+    self.assertIsInstance(self.arrangement.groups, list)
+
+  def test_arrangement_has_participants(self):
+    self.assertIsInstance(self.arrangement.participants, list)
+
+  def test_arrangement_add_group(self):
+    self.arrangement.addGroup()
+    self.assertIsInstance(self.arrangement.groups[0], compat.Group)
+
+  def test_arrangement_add_participant(self):
+    participant = compat.Participant('eric')
+    self.arrangement.addParticipant(participant)
+    self.assertIsInstance(self.arrangement.participants[0], compat.Participant)
 

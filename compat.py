@@ -21,6 +21,9 @@ class Participant:
   def addToGroup(self, group):
     self.group = group
 
+  def removeFromGroup(self):
+    self.group = None
+
 class Cohort:
 
   def __init__(self):
@@ -33,10 +36,6 @@ class Cohort:
   def addParticipant(self, participant):
     self.participants.append(participant)
 
-  def addParticipantToGroup(self, participant, group):
-    participant.addToGroup(group)
-    group.addParticipant(participant)
-
 class Group:
 
   def __init__(self):
@@ -46,6 +45,9 @@ class Group:
     participant.addToGroup(self)
     self.participants.append(participant)
 
+  def removeParticipant(self, participant):
+    self.participants.remove(participant)
+
   def getScore(self):
     return 'false'
 
@@ -53,3 +55,14 @@ class Arrangement:
   
   def __init__(self):
     self.groups = []
+    self.participants = []
+
+  def addGroup(self):
+    self.groups.append(Group())
+
+  def addParticipant(self, participant):
+    self.participants.append(participant)
+
+  def addParticipantToGroup(self, participant, group):
+    participant.addToGroup(group)
+    group.addParticipant(participant)
