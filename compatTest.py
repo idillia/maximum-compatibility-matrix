@@ -1,4 +1,5 @@
 import unittest
+import json
 import compat
 
 class participantTestCase(unittest.TestCase):
@@ -94,6 +95,11 @@ class arrangementTestCase(unittest.TestCase):
     self.arrangement.addGroup()
     self.assertIsInstance(self.arrangement.groups[0], compat.Group)
 
+  def test_arrangement_get_participant(self):
+    self.arrangement.addParticipant(compat.Participant('eric'))
+    participant = self.arrangement.getParticipant('eric')
+    self.assertIsInstance(self.arrangement.getParticipant('eric'), compat.Participant)
+
   def test_arrangement_add_participant(self):
     participant = compat.Participant('eric')
     self.arrangement.addParticipant(participant)
@@ -106,6 +112,19 @@ class arrangementTestCase(unittest.TestCase):
     self.arrangement.addParticipantToGroup(participant, group)
     self.assertIs(group.participants[0], participant)
     self.assertIs(participant.group, group)
+
+  def test_arrangement_can_read_from_file(self):
+    arrangement = compat.Arrangement('sampleData.json')
+    self.assertEqual(len(arrangement.participants), 9)
+    self.assertIsInstance(arrangement.participants[1], compat.Participant)
+    self.assertEqual(arrangement.participants[0].name, 'Luana Chary')
+
+  def test_arrangement_can_assign_participants_to_group(self):
+    arrangement = compat.Arrangement('sampleData.json')
+    arrangement.assignParticipantsToGroups(3)
+    self.assertEqual(len(arrangement.groups[0].participants), 3)
+    self.assertEqual(arrangement.groups[0].participants[0].name, 'Luana Chary')
+    # print arrangement
 
 class strategyTestCase(unittest.TestCase):
   def setUp(self):

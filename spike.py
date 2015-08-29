@@ -46,10 +46,9 @@ for i in range(len(arrangement.participants)):
   # print str(map(lambda p: p.name, participant.likes))
   # print str(map(lambda p: p.name, participant.dislikes))
   participants.append({
-    participant.name: {
-      'likes': map(lambda p: p.name, participant.likes),
-      'dislikes': map(lambda p: p.name, participant.dislikes)
-    }
+    'name': participant.name,
+    'likes': map(lambda p: p.name, participant.likes),
+    'dislikes': map(lambda p: p.name, participant.dislikes)
   })
   # participants[participant.name] = {}
   # participants[participant.name]['likes'] = map(lambda p: p.name, participant.likes)
@@ -57,6 +56,17 @@ for i in range(len(arrangement.participants)):
   # print arrangement.participants[i].name + " " + ', '.join(arrangement.participants[i].likes) + " " + ', '.join(arrangement.participants[i].dislikes)
 # print participants
 
-# print json.dumps(participants, indent=2, separators=(',', ': '))
-# f = open('class.json', 'w')
-# f.write(json.dumps(participants, indent=2, separators=(',', ': ')))
+print json.dumps(participants, indent=2, separators=(',', ': '))
+f = open('class.json', 'w')
+f.write(json.dumps(participants, indent=2, separators=(',', ': ')))
+
+arrangement = Arrangement()
+arrangement.readParticipantsFromFile('sampleData.json')
+arrangement.createGroups(3)
+arrangement.assignParticipantsToGroups()
+arrangement.setStrategy(Strategy())
+arrangement.getScore()
+
+compatSolver.init(Arrangement, 10, Strategy, dataSet)
+
+

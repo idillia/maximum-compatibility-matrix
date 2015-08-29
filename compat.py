@@ -1,4 +1,5 @@
 import names
+import json
 
 class Participant:
 
@@ -46,10 +47,32 @@ class Group:
 
 class Arrangement:
   
-  def __init__(self):
+  def __init__(self, filename = None, numGroups = 1):
     self.groups = []
     self.participants = []
+    if filename:
+      self.readParticipantsFromFile(filename)
     self.strategy = Strategy(self)
+
+  def __repr__(self):
+    result = ''
+    i = 0
+    result += 'Participants:\n'
+    for participant in self.participants:
+      result += participant.name + '\n'
+    for group in self.groups:
+      result += "Group " + str(i) + "\n"
+      for participant in group.participants:
+        result += participant.name + ": \nLikes: "
+        for like in participant.likes:
+          result += like['name'] + ' '
+        result += "\nDislikes: "
+        for dislike in participant.dislikes:
+          result += dislike['name'] + ' '
+    return result
+
+  def getParticipant(self, name):
+    return next(p for p in self.participants if p.name == name)
 
   def addGroup(self):
     self.groups.append(Group())
@@ -60,6 +83,20 @@ class Arrangement:
   def addParticipantToGroup(self, participant, group):
     participant.addToGroup(group)
     group.addParticipant(participant)
+
+  def readParticipantsFromFile(self, filename):
+    f = open(filename)
+    arrangement = json.load(f)
+    for el in arrangement:
+      self.participants.append(Participant(el['name']))
+    # for participant in self.participants:
+    #   likes = arrangement[participant.name]['likes']
+
+  def assignParticipantsToGroups(self, numGroups):
+    for i in range(numGroups):
+      self.addGroup()
+    for i in range(len(self.participants)):
+      self.addParticipantToGroup(self.participants[i], self.groups[i % numGroups])
 
 class Strategy:
 
