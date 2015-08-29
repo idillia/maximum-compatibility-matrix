@@ -26,9 +26,12 @@ class Participant:
 
 class Cohort:
 
-  def __init__(self):
-    self.participants = []
+  def __init__(self, participants = []):
     self.groups = []
+    self.participants = []
+    for participant in participants:
+      self.participants.append(Participant(participant))
+
 
   def addGroup(self, group):
     self.groups.append(group)

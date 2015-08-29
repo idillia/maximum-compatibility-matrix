@@ -60,6 +60,12 @@ class cohortTestCase(unittest.TestCase):
     self.cohort.addParticipant(participant)
     self.assertEqual(self.cohort.participants[0].name, 'Eric')
 
+  def test_cohort_can_be_initiated_with_list_of_names(self):
+    participants = ['eric', 'john', 'taylor', 'glenn']
+    cohort = compat.Cohort(participants)
+    self.assertIsInstance(cohort.participants[0], compat.Participant)
+    self.assertEqual(len(cohort.participants), 4)
+
 class groupTestCase(unittest.TestCase):
   def setUp(self):
     self.group = compat.Group()
