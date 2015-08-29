@@ -45,27 +45,6 @@ class participantTestCase(unittest.TestCase):
     self.assertIsInstance(participant2.name, str)
     self.assertNotEqual(participant1.name, participant2.name)
 
-class cohortTestCase(unittest.TestCase):
-  def setUp(self):
-    self.cohort = compat.Cohort()
-
-  def test_cohort_exists(self):
-    self.assertIsInstance(self.cohort, compat.Cohort)
-
-  def test_cohort_has_list_of_participants(self):
-    self.assertIsInstance(self.cohort.participants, list)
-
-  def test_cohort_can_add_participant(self):
-    participant = compat.Participant('Eric')
-    self.cohort.addParticipant(participant)
-    self.assertEqual(self.cohort.participants[0].name, 'Eric')
-
-  def test_cohort_can_be_initiated_with_list_of_names(self):
-    participants = ['eric', 'john', 'taylor', 'glenn']
-    cohort = compat.Cohort(participants)
-    self.assertIsInstance(cohort.participants[0], compat.Participant)
-    self.assertEqual(len(cohort.participants), 4)
-
 class groupTestCase(unittest.TestCase):
   def setUp(self):
     self.group = compat.Group()

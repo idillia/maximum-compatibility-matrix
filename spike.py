@@ -1,32 +1,27 @@
 import random
+import json
 import compat
 import math
 
-# Create a cohort.
+# Create a arrangement.
 
-cohort = compat.Cohort()
-
-print cohort
+arrangement = compat.Arrangement()
 
 # Create some random participants
-for x in range(0, 40):
-  cohort.addParticipant(compat.Participant.createRandomParticipant())
-# for participant in cohort.participants:
-  # print participant.name
-
-# Create an arrangement
-arrangement = compat.Arrangement()
-arrangement.participants = cohort.participants
+for x in range(0, 9):
+  arrangement.addParticipant(compat.Participant.createRandomParticipant())
+# for participant in arrangement.participants:
+#   print participant.name
 
 # Create the number of groups so that we have 4 participants per group.
-numGroups = int(math.floor(len(cohort.participants) / 4))
+numGroups = int(math.floor(len(arrangement.participants) / 4))
 # print numGroups
 for i in range(numGroups):
   arrangement.addGroup()
 
 # Assign those participants to groups.
-for i in range(len(cohort.participants)):
-  arrangement.addParticipantToGroup(cohort.participants[i], arrangement.groups[i % 10])
+for i in range(len(arrangement.participants)):
+  arrangement.addParticipantToGroup(arrangement.participants[i], arrangement.groups[i % numGroups])
 
 # Check to make sure we have 4 participants per group
 # for group in arrangement.groups:
@@ -36,18 +31,32 @@ for i in range(len(cohort.participants)):
 
 # Add random likes and dislikes for each participant.
 
-for participant1 in cohort.participants:
-  for participant2 in cohort.participants:
+for participant1 in arrangement.participants:
+  for participant2 in arrangement.participants:
     if participant1 == participant2:
       continue
     if random.random() > 0.8:
       participant1.like(participant2)
     elif random.random() < 0.1:
       participant1.dislike(participant2)
-
-for i in range(10):
+participants = []
+for i in range(len(arrangement.participants)):
   participant = arrangement.participants[i]
-  print participant.name
-  print str(map(lambda p: p.name, participant.likes))
-  print str(map(lambda p: p.name, participant.dislikes))
+  # print participant.name
+  # print str(map(lambda p: p.name, participant.likes))
+  # print str(map(lambda p: p.name, participant.dislikes))
+  participants.append({
+    participant.name: {
+      'likes': map(lambda p: p.name, participant.likes),
+      'dislikes': map(lambda p: p.name, participant.dislikes)
+    }
+  })
+  # participants[participant.name] = {}
+  # participants[participant.name]['likes'] = map(lambda p: p.name, participant.likes)
+  # participants[participant.name]['dislikes'] = map(lambda p: p.name, participant.dislikes)
   # print arrangement.participants[i].name + " " + ', '.join(arrangement.participants[i].likes) + " " + ', '.join(arrangement.participants[i].dislikes)
+# print participants
+
+# print json.dumps(participants, indent=2, separators=(',', ': '))
+# f = open('class.json', 'w')
+# f.write(json.dumps(participants, indent=2, separators=(',', ': ')))

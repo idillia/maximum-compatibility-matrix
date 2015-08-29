@@ -1,0 +1,81 @@
+[
+  {
+    "Kathy Garcia": {
+      "dislikes": [
+        "Kenneth Tovar"
+      ],
+      "likes": [
+        "Sue Monahan"
+      ]
+    }
+  },
+  {
+    "Kenneth Tovar": {
+      "dislikes": [],
+      "likes": []
+    }
+  },
+  {
+    "Bethany Lacy": {
+      "dislikes": [
+        "Steven Simmons"
+      ],
+      "likes": [
+        "Kyle Newberry"
+      ]
+    }
+  },
+  {
+    "Steven Simmons": {
+      "dislikes": [
+        "Earnestine Bryant"
+      ],
+      "likes": []
+    }
+  },
+  {
+    "Paul Mitchell": {
+      "dislikes": [],
+      "likes": [
+        "Steven Simmons",
+        "Kyle Newberry"
+      ]
+    }
+  },
+  {
+    "Earnestine Bryant": {
+      "dislikes": [],
+      "likes": []
+    }
+  },
+  {
+    "Sue Monahan": {
+      "dislikes": [],
+      "likes": [
+        "Theresa Huff"
+      ]
+    }
+  },
+  {
+    "Theresa Huff": {
+      "dislikes": [
+        "Bethany Lacy"
+      ],
+      "likes": [
+        "Paul Mitchell",
+        "Sue Monahan"
+      ]
+    }
+  },
+  {
+    "Kyle Newberry": {
+      "dislikes": [
+        "Kenneth Tovar"
+      ],
+      "likes": [
+        "Paul Mitchell",
+        "Theresa Huff"
+      ]
+    }
+  }
+]

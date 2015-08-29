@@ -24,20 +24,6 @@ class Participant:
   def removeFromGroup(self):
     self.group = None
 
-class Cohort:
-
-  def __init__(self, participants = []):
-    self.groups = []
-    self.participants = []
-    for participant in participants:
-      self.participants.append(Participant(participant))
-
-  def addGroup(self, group):
-    self.groups.append(group)
-
-  def addParticipant(self, participant):
-    self.participants.append(participant)
-
 class Group:
 
   def __init__(self):
