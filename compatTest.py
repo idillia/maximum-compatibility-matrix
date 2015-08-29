@@ -86,15 +86,17 @@ class groupTestCase(unittest.TestCase):
     self.group.removeParticipant(self.participant1)
     self.assertEqual(len(self.group.participants), 0)
 
-  @unittest.skip("Skipping getscore")
   def test_group_getScore_returns_int(self):
     score = self.group.getScore()
     self.assertIsInstance(score, int)
 
-  @unittest.skip("Skipping getscore")
   def test_group_getScore_works_with_two_participants(self):
     self.group.addParticipant(self.participant1)
     self.group.addParticipant(self.participant2)
+    self.participant1.like(self.participant2)
+    self.assertEqual(self.group.getScore(), 1)
+    self.participant2.like(self.participant1)
+    self.assertEqual(self.group.getScore(), 2)
 
 class arrangementTestCase(unittest.TestCase):
   def setUp(self):

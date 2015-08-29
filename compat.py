@@ -32,7 +32,6 @@ class Cohort:
     for participant in participants:
       self.participants.append(Participant(participant))
 
-
   def addGroup(self, group):
     self.groups.append(group)
 
@@ -52,13 +51,19 @@ class Group:
     self.participants.remove(participant)
 
   def getScore(self):
-    return 'false'
+    score = 0
+    for participant1 in self.participants:
+      for participant2 in self.participants:
+        if participant2 in participant1.likes:
+          score += 1
+    return score
 
 class Arrangement:
   
   def __init__(self):
     self.groups = []
     self.participants = []
+    self.strategy = Strategy(self)
 
   def addGroup(self):
     self.groups.append(Group())
@@ -69,3 +74,19 @@ class Arrangement:
   def addParticipantToGroup(self, participant, group):
     participant.addToGroup(group)
     group.addParticipant(participant)
+
+class Strategy:
+
+  def __init__(self, arrangement):
+    self.arrangement = arrangement
+    self.swapRate = 0.1
+    self.maxEVWeight = 1.0
+    self.minDiffWeight = 0
+    self.allowGroupWithDislike = True
+    self.startingPopulation = 10
+
+  def fitness(self):
+    score = 0
+    for group in self.arrangement.groups:
+      score += group.getScore()
+    return score
