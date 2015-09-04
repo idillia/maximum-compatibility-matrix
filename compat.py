@@ -1,4 +1,5 @@
 import names
+import random
 import json
 
 
@@ -14,13 +15,35 @@ class Participant:
     self.dislikes = []
     self.interpersonalRefusals = []
     self.technicalRefusals = []
+    self.affinities = []
     self.group = None
+    self.affinityDict = {
+      'interpersonal_refusals': self.addInterpersonalRefusal,
+      'technical_refusals': self.addTechnicalRefusal,
+      'affinities': self.addAffinity
+    }
+
+  def __repr__(self):
+    result = 'Participant Name: ' + self.name + ':\n'
+    result += 'Affinities: \n'
+    for affinity in self.affinities:
+      result += affinity.name + ' '
+    result += '\nInterpersonal Refusals: \n'
+    for interpersonalRefusal in self.interpersonalRefusals:
+      result += interpersonalRefusal.name + ' ' 
+    result += '\nTechnical Refusals: \n'
+    for technicalRefusal in self.technicalRefusals:
+      result += technicalRefusal.name + ' '
+    return result
 
   def like(self, participant):
     self.likes.append(participant)
 
   def dislike(self, participant):
     self.dislikes.append(participant)
+
+  def addAffinity(self, participant):
+    self.affinities.append(participant)
 
   def addInterpersonalRefusal(self, participant):
     self.interpersonalRefusals.append(participant)
@@ -59,6 +82,7 @@ class Group:
 class Arrangement:
   
   def __init__(self, filename = None, numGroups = 1):
+    self.numGroups = numGroups
     self.groups = []
     self.participants = []
     if filename:
@@ -74,12 +98,9 @@ class Arrangement:
     for group in self.groups:
       result += "Group " + str(i) + "\n"
       for participant in group.participants:
-        result += participant.name + ": \nLikes: "
-        for like in participant.likes:
-          result += like['name'] + ' '
-        result += "\nDislikes: "
-        for dislike in participant.dislikes:
-          result += dislike['name'] + ' '
+        result += participant.name + ' '
+      result += '\n'
+      i += 1
     return result
 
   def getParticipant(self, name):
@@ -97,17 +118,32 @@ class Arrangement:
 
   def readParticipantsFromFile(self, filename):
     f = open(filename)
-    arrangement = json.load(f)
-    for el in arrangement:
-      self.participants.append(Participant(el['name']))
-    # for participant in self.participants:
-    #   likes = arrangement[participant.name]['likes']
+    survey = json.load(f)
+    for name in survey['technical_refusals']:
+      self.addParticipant(Participant(name))
+    # for each participant
+    for participant in self.participants:
+      # for each survey
+      for surveyType in survey:
+        # for each person in their list
+        for name in survey[surveyType][participant.name]:
+          # set their affinity
+          print participant.name + ' ' + surveyType + ' ' + name
+          participant.affinityDict[surveyType](self.getParticipant(name))
 
   def assignParticipantsToGroups(self, numGroups):
     for i in range(numGroups):
       self.addGroup()
     for i in range(len(self.participants)):
       self.addParticipantToGroup(self.participants[i], self.groups[i % numGroups])
+
+  def randomizeGroups(self):
+    self.groups = []
+    random.shuffle(self.participants)
+    for i in range(self.numGroups):
+      self.addGroup()
+    for i in range(len(self.participants)):
+      self.addParticipantToGroup(self.participants[i], self.groups[i % self.numGroups])
 
 
 class Strategy:
