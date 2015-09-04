@@ -2,6 +2,7 @@ import unittest
 import json
 import compat
 
+
 class participantTestCase(unittest.TestCase):
   def setUp(self):
     self.participant = compat.Participant('Eric')
@@ -16,6 +17,20 @@ class participantTestCase(unittest.TestCase):
 
   def test_participant_dislikes(self):
     self.assertIsInstance(self.participant.dislikes, list)
+
+  def test_participant_interpersonal_refusals(self):
+    self.assertIsInstance(self.participant.interpersonalRefusals, list)
+
+  def test_participant_technical_refusals(self):
+    self.assertIsInstance(self.participant.technicalRefusals, list)
+
+  def test_add_interpersonal_refusal(self):
+    self.participant.addInterpersonalRefusal(self.enemy)
+    self.assertEqual(self.enemy, self.participant.interpersonalRefusals[0])
+
+  def test_add_technical_refusal(self):
+    self.participant.addTechnicalRefusal(self.enemy)
+    self.assertEqual(self.enemy, self.participant.technicalRefusals[0])
 
   def test_participant_add_likes(self):
     self.participant.like(self.friend)
@@ -45,6 +60,7 @@ class participantTestCase(unittest.TestCase):
     self.assertIsInstance(participant1.name, str)
     self.assertIsInstance(participant2.name, str)
     self.assertNotEqual(participant1.name, participant2.name)
+
 
 class groupTestCase(unittest.TestCase):
   def setUp(self):
@@ -77,6 +93,7 @@ class groupTestCase(unittest.TestCase):
     self.assertEqual(self.group.getScore(), 1)
     self.participant2.like(self.participant1)
     self.assertEqual(self.group.getScore(), 2)
+
 
 class arrangementTestCase(unittest.TestCase):
   def setUp(self):
@@ -125,6 +142,7 @@ class arrangementTestCase(unittest.TestCase):
     self.assertEqual(len(arrangement.groups[0].participants), 3)
     self.assertEqual(arrangement.groups[0].participants[0].name, 'Luana Chary')
     # print arrangement
+
 
 class strategyTestCase(unittest.TestCase):
   def setUp(self):

@@ -1,6 +1,7 @@
 import names
 import json
 
+
 class Participant:
 
   @staticmethod
@@ -11,6 +12,8 @@ class Participant:
     self.name = name
     self.likes = []
     self.dislikes = []
+    self.interpersonalRefusals = []
+    self.technicalRefusals = []
     self.group = None
 
   def like(self, participant):
@@ -19,11 +22,18 @@ class Participant:
   def dislike(self, participant):
     self.dislikes.append(participant)
 
+  def addInterpersonalRefusal(self, participant):
+    self.interpersonalRefusals.append(participant)
+
+  def addTechnicalRefusal(self, participant):
+    self.technicalRefusals.append(participant)
+
   def addToGroup(self, group):
     self.group = group
 
   def removeFromGroup(self):
     self.group = None
+
 
 class Group:
 
@@ -44,6 +54,7 @@ class Group:
         if participant2 in participant1.likes:
           score += 1
     return score
+
 
 class Arrangement:
   
@@ -97,6 +108,7 @@ class Arrangement:
       self.addGroup()
     for i in range(len(self.participants)):
       self.addParticipantToGroup(self.participants[i], self.groups[i % numGroups])
+
 
 class Strategy:
 
