@@ -8,8 +8,6 @@ class Participant:
 
   def __init__(self, name):
     self.name = name
-    self.likes = []
-    self.dislikes = []
     self.interpersonalRefusals = []
     self.technicalRefusals = []
     self.affinities = []
@@ -32,12 +30,6 @@ class Participant:
     for technicalRefusal in self.technicalRefusals:
       result += technicalRefusal.name + ' '
     return result
-
-  def like(self, participant):
-    self.likes.append(participant)
-
-  def dislike(self, participant):
-    self.dislikes.append(participant)
 
   def addAffinity(self, participant):
     self.affinities.append(participant)

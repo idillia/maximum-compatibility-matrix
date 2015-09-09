@@ -2,15 +2,17 @@ import json
 from strategy import Strategy
 from participant import Participant
 from group import Group
+NUM_INDIVIDUALS_PER_GROUP = 4
 
 class Arrangement:
   
-  def __init__(self, filename = None, numGroups = 1):
-    self.numGroups = numGroups
+  def __init__(self, filename = None):
     self.groups = []
     self.participants = []
-    if filename:
+    if (filename):
       self.readParticipantsFromFile(filename)
+    self.numGroups = len(self.participants) / NUM_INDIVIDUALS_PER_GROUP
+    self.assignParticipantsToGroups(self.numGroups)
     self.strategy = Strategy(self)
     self.score = None
 
@@ -49,11 +51,8 @@ class Arrangement:
     survey = json.load(f)
     for name in survey['technical_refusals']:
       self.addParticipant(Participant(name))
-    # for each participant
     for participant in self.participants:
-      # for each survey
       for surveyType in survey:
-        # for each person in their list
         for name in survey[surveyType][participant.name]:
           # set their affinity
           # print participant.name + ' ' + surveyType + ' ' + name

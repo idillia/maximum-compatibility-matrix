@@ -11,4 +11,14 @@ class Group:
     self.participants.remove(participant)
 
   def getScore(self):
-    return 0;
+    score = 0
+    for participant1 in self.participants:
+      for participant2 in self.participants:
+        if participant1 != participant2:
+          if participant2 in participant1.affinities:
+            score += 1
+          if participant2 in participant1.technicalRefusals:
+            score -= 1
+          if participant2 in participant1.interpersonalRefusals:
+            score -= 1
+    return score

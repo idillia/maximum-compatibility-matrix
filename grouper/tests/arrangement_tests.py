@@ -47,6 +47,5 @@ class arrangementTestCase(unittest.TestCase):
 
   def test_arrangement_can_assign_participants_to_group(self):
     arrangement = Arrangement(os.path.abspath(os.path.join('grouper/sample_data/affinities.json')))
-    arrangement.assignParticipantsToGroups(5)
     self.assertEqual(len(arrangement.groups[0].participants), 4)
     self.assertEqual(arrangement.groups[0].participants[0].name, 'Mary Polster')

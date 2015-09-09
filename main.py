@@ -8,6 +8,9 @@ class HackReactorStrategy(Strategy):
   def __init__(self, arrangement):
     return
 
+  def run(self):
+    
+
 class HackReactorArrangement(Arrangement):
 
   def __init__(self, filename = None, numGroups = 1):
@@ -22,7 +25,9 @@ class HackReactorGroup(Group):
 
   def __init__(self):
     return
-    
+
 arrangement = HackReactorArrangement('grouper/sample_data/affinities.json')
 
 strategy = HackReactorStrategy(arrangement)
+
+
