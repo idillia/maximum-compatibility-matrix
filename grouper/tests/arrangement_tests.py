@@ -41,14 +41,12 @@ class arrangementTestCase(unittest.TestCase):
 
   def test_arrangement_can_read_from_file(self):
     arrangement = Arrangement(os.path.abspath(os.path.join('grouper/sample_data/affinities.json')))
-    self.assertEqual(len(arrangement.participants), 9)
+    self.assertEqual(len(arrangement.participants), 20)
     self.assertIsInstance(arrangement.participants[1], Participant)
-    self.assertEqual(arrangement.participants[0].name, 'Luana Chary')
+    self.assertEqual(arrangement.participants[0].name, 'Mary Polster')
 
   def test_arrangement_can_assign_participants_to_group(self):
     arrangement = Arrangement(os.path.abspath(os.path.join('grouper/sample_data/affinities.json')))
-    print 'Arrangement participants length' + str(len(arrangement.participants))
-    print 'Arrangement numGroups' + str(arrangement.numGroups)
-    arrangement.assignParticipantsToGroups(4)
-    self.assertEqual(len(arrangement.groups[0].participants), 3)
-    self.assertEqual(arrangement.groups[0].participants[0].name, 'Luana Chary')
+    arrangement.assignParticipantsToGroups(5)
+    self.assertEqual(len(arrangement.groups[0].participants), 4)
+    self.assertEqual(arrangement.groups[0].participants[0].name, 'Mary Polster')
