@@ -1,4 +1,5 @@
-import compat
+import grouper
+import grouper.participant
 import random
 
 def calculateGroupScore(group):
@@ -9,18 +10,6 @@ def calculateGroupScore(group):
         score += 1
   return score
 
-arrangement = compat.Arrangement('affinities.json', 5)
-
-
-arrangement.assignParticipantsToGroups(5)
-
-print arrangement
-
-arrangement.randomizeGroups()
-
-print arrangement
-
-# Create a list of arrangements
 arrangements = []
 
 # Generate 10 random lists and push them to arrangements
@@ -28,8 +17,6 @@ for i in range(10):
   arrangement = compat.Arrangement('affinities.json', 5)
   arrangement.randomizeGroups()
   arrangements.append(arrangement)
-
-print arrangements
 
 # For each arrangement
 arrangementScores = []
@@ -57,8 +44,11 @@ def generateRandomArrangement(filename, numGroups):
   arrangement = compat.Arrangement('affinities.json', 5)
   arrangement.assignParticipantsToGroups(5)
 
+def mutateArrangements(arrangements, numMutations):
+  return
 
-
+def mutateArrangement(arrangement, numMutations):
+  return
 
 arrangement = compat.Arrangement('affinities.json', 5)
 
@@ -73,3 +63,7 @@ print 'Participant 4 affinities: ' + str(map(lambda p: p.name, arrangement.group
 print 'Group 0 score: ' + str(calculateGroupScore(arrangement.groups[0]))
 
 print 'Scores of the 10 random arrangements: ' + str(arrangementScores)
+
+# Grouper.strategy = myStrategy;
+# Grouper.arrangement = myArrangement
+# Grouper.groupScoringFunction = groupScoringFunction

@@ -1,15 +1,16 @@
 import random
 import json
-import compat
+from ..arrangement import Arrangement
+from ..participant import Participant
 import math
 
 # Create a arrangement.
 
-arrangement = compat.Arrangement()
+arrangement = Arrangement()
 
 # Create some random participants
-for x in range(0, 20):
-  arrangement.addParticipant(compat.Participant.createRandomParticipant())
+for x in range(0, 40):
+  arrangement.addParticipant(Participant.createRandomParticipant())
 # for participant in arrangement.participants:
 #   print participant.name
 
@@ -66,7 +67,7 @@ print json.dumps(result, indent=2, separators=(',', ': '))
 f = open('class.json', 'w')
 f.write(json.dumps(result, indent=2, separators=(',', ': ')))
 
-# arrangement = compat.Arrangement()
+# arrangement = Arrangement()
 # arrangement.readParticipantsFromFile('sampleData.json')
 # arrangement.createGroups(3)
 # arrangement.assignParticipantsToGroups()

@@ -1,0 +1,784 @@
+{
+  "technical_refusals": {
+    "Rosemary Winston": [
+      "Jesse Bragg",
+      "Alexander Fife",
+      "Clifford Hornbeck",
+      "Kelly Garner"
+    ],
+    "Billy Perry": [
+      "Maria Moreno",
+      "Peggy Battle",
+      "Matthew Cannon",
+      "Justin Martin"
+    ],
+    "Kendra Ellis": [
+      "Amy Binkley",
+      "Henry Ovalle"
+    ],
+    "Henry Ovalle": [
+      "Maria Moreno",
+      "Matthew Cannon"
+    ],
+    "Justin Martin": [
+      "Paul Hall",
+      "Norah Booth",
+      "Robert Duchene",
+      "Maria Moreno",
+      "Matthew Cannon",
+      "Elizabeth Brendel"
+    ],
+    "Thomas Saysongkham": [
+      "Tracy Hall",
+      "Clifford Hornbeck",
+      "Gloria Scott"
+    ],
+    "Robert Duchene": [],
+    "Rebecca Knoblock": [
+      "Paul Hall",
+      "Justin Martin",
+      "Henry Ovalle"
+    ],
+    "John Butler": [
+      "Paul Hall",
+      "Jesse Bragg",
+      "Peggy Battle",
+      "Kendra Ellis",
+      "Justin Martin"
+    ],
+    "Tony Soffel": [
+      "Tracy Hall",
+      "Peggy Battle"
+    ],
+    "Terrance Hummer": [
+      "Paul Hall",
+      "Caridad Cruz",
+      "Weston Warner",
+      "Alexander Fife",
+      "Henry Ovalle"
+    ],
+    "Dominic Brown": [
+      "Angelo Bassetti",
+      "John Butler",
+      "Michael Hylton",
+      "Kelly Garner"
+    ],
+    "Christopher Smith": [
+      "Riley Jones",
+      "Matthew Cannon",
+      "Keith Pickering"
+    ],
+    "Tracy Hall": [
+      "Rosemary Winston",
+      "Kendra Ellis"
+    ],
+    "Kelly Garner": [
+      "Norah Booth",
+      "Sandra Simmons",
+      "Weston Warner",
+      "Clifford Hornbeck",
+      "Christopher Smith",
+      "Rebecca Knoblock"
+    ],
+    "Maria Moreno": [
+      "Tony Soffel",
+      "Thomas Saysongkham",
+      "Gloria Scott"
+    ],
+    "Elizabeth Brendel": [
+      "Sandra Simmons"
+    ],
+    "Weston Warner": [
+      "Tony Soffel"
+    ],
+    "Martha Nellis": [
+      "Tony Soffel",
+      "Peggy Battle",
+      "Amy Binkley"
+    ],
+    "Paul Hall": [],
+    "Matthew Cannon": [
+      "Dominic Brown",
+      "Sandra Simmons"
+    ],
+    "Alexander Fife": [
+      "Darrell Bentley",
+      "Paul Hall"
+    ],
+    "Gloria Scott": [
+      "John Butler",
+      "Kelly Garner"
+    ],
+    "Lenora Tyree": [
+      "Riley Jones"
+    ],
+    "Angelo Bassetti": [
+      "Norah Booth",
+      "Christopher Smith",
+      "Justin Martin"
+    ],
+    "Sandra Simmons": [
+      "Martha Nellis"
+    ],
+    "Amy Binkley": [
+      "Tony Soffel",
+      "Christopher Smith"
+    ],
+    "Norah Booth": [
+      "Darrell Bentley",
+      "Kendra Ellis"
+    ],
+    "Riley Jones": [
+      "Lenora Tyree",
+      "Sandra Simmons",
+      "Don Guerra",
+      "Peggy Battle"
+    ],
+    "Michael Hylton": [
+      "Darrell Bentley",
+      "Riley Jones",
+      "Don Guerra",
+      "Alexander Fife",
+      "Grace Gin",
+      "Kelly Garner"
+    ],
+    "Clifford Hornbeck": [
+      "Riley Jones",
+      "Jesse Bragg",
+      "Peggy Battle",
+      "Keith Pickering"
+    ],
+    "Rosalinda Whitfield": [
+      "Paul Hall"
+    ],
+    "Jesse Bragg": [
+      "Billy Perry",
+      "Rosalinda Whitfield"
+    ],
+    "Don Guerra": [
+      "Dominic Brown",
+      "Christopher Smith"
+    ],
+    "Keith Pickering": [
+      "Terrance Hummer",
+      "Kendra Ellis"
+    ],
+    "Darrell Bentley": [
+      "John Butler",
+      "Kelly Garner"
+    ],
+    "Tora Coleman": [
+      "Rosemary Winston",
+      "Sandra Simmons",
+      "Don Guerra",
+      "Billy Perry",
+      "Kendra Ellis",
+      "Rosalinda Whitfield"
+    ],
+    "Caridad Cruz": [
+      "Tony Soffel",
+      "Tracy Hall",
+      "Matthew Cannon"
+    ],
+    "Grace Gin": [
+      "Dominic Brown",
+      "Don Guerra",
+      "Maria Moreno",
+      "Kendra Ellis"
+    ],
+    "Peggy Battle": [
+      "Riley Jones",
+      "Sandra Simmons",
+      "Don Guerra",
+      "Kelly Garner"
+    ]
+  },
+  "affinities": {
+    "Rosemary Winston": [
+      "Martha Nellis",
+      "Norah Booth",
+      "Riley Jones",
+      "Tracy Hall",
+      "Robert Duchene",
+      "Elizabeth Brendel",
+      "Gloria Scott",
+      "Michael Hylton",
+      "Henry Ovalle"
+    ],
+    "Billy Perry": [
+      "Martha Nellis",
+      "Tracy Hall",
+      "Jesse Bragg",
+      "Kendra Ellis",
+      "Elizabeth Brendel",
+      "Amy Binkley",
+      "Rebecca Knoblock"
+    ],
+    "Kendra Ellis": [
+      "Angelo Bassetti",
+      "Don Guerra",
+      "Robert Duchene",
+      "Thomas Saysongkham",
+      "Michael Hylton",
+      "Rebecca Knoblock",
+      "Tora Coleman"
+    ],
+    "Henry Ovalle": [
+      "Terrance Hummer",
+      "Lenora Tyree",
+      "Sandra Simmons",
+      "Don Guerra",
+      "Jesse Bragg",
+      "Kendra Ellis",
+      "Alexander Fife",
+      "Keith Pickering"
+    ],
+    "Justin Martin": [
+      "Caridad Cruz",
+      "Gloria Scott",
+      "Rebecca Knoblock",
+      "Henry Ovalle"
+    ],
+    "Thomas Saysongkham": [
+      "Martha Nellis",
+      "Norah Booth",
+      "Lenora Tyree",
+      "Tony Soffel",
+      "Don Guerra",
+      "Robert Duchene",
+      "Billy Perry",
+      "Maria Moreno",
+      "Peggy Battle",
+      "Elizabeth Brendel",
+      "Keith Pickering"
+    ],
+    "Robert Duchene": [
+      "Caridad Cruz",
+      "Lenora Tyree",
+      "Maria Moreno",
+      "Elizabeth Brendel",
+      "Amy Binkley",
+      "Christopher Smith"
+    ],
+    "Rebecca Knoblock": [
+      "Norah Booth",
+      "Angelo Bassetti",
+      "Riley Jones",
+      "Rosemary Winston",
+      "Dominic Brown",
+      "Sandra Simmons",
+      "Don Guerra",
+      "Robert Duchene",
+      "Billy Perry",
+      "Weston Warner",
+      "Clifford Hornbeck",
+      "Christopher Smith",
+      "Michael Hylton",
+      "Tora Coleman"
+    ],
+    "John Butler": [
+      "Darrell Bentley",
+      "Terrance Hummer",
+      "Martha Nellis",
+      "Riley Jones",
+      "Thomas Saysongkham",
+      "Maria Moreno",
+      "Weston Warner",
+      "Alexander Fife",
+      "Elizabeth Brendel"
+    ],
+    "Tony Soffel": [
+      "Paul Hall",
+      "Norah Booth",
+      "Thomas Saysongkham",
+      "Billy Perry",
+      "Kendra Ellis",
+      "Justin Martin",
+      "Grace Gin",
+      "Keith Pickering"
+    ],
+    "Terrance Hummer": [
+      "Darrell Bentley",
+      "John Butler",
+      "Riley Jones",
+      "Keith Pickering"
+    ],
+    "Dominic Brown": [
+      "Tony Soffel",
+      "Tracy Hall",
+      "Maria Moreno",
+      "Clifford Hornbeck",
+      "Elizabeth Brendel",
+      "Christopher Smith",
+      "Justin Martin",
+      "Keith Pickering"
+    ],
+    "Christopher Smith": [
+      "John Butler",
+      "Lenora Tyree",
+      "Don Guerra",
+      "Jesse Bragg",
+      "Rebecca Knoblock",
+      "Henry Ovalle"
+    ],
+    "Tracy Hall": [
+      "Darrell Bentley",
+      "Don Guerra",
+      "Robert Duchene",
+      "Matthew Cannon",
+      "Rosalinda Whitfield"
+    ],
+    "Kelly Garner": [
+      "Darrell Bentley",
+      "Terrance Hummer",
+      "Tony Soffel",
+      "Dominic Brown",
+      "Matthew Cannon",
+      "Rosalinda Whitfield",
+      "Tora Coleman",
+      "Henry Ovalle"
+    ],
+    "Maria Moreno": [
+      "Lenora Tyree",
+      "Sandra Simmons",
+      "Robert Duchene",
+      "Jesse Bragg",
+      "Clifford Hornbeck",
+      "Rebecca Knoblock",
+      "Keith Pickering"
+    ],
+    "Elizabeth Brendel": [
+      "Norah Booth",
+      "Tracy Hall",
+      "Thomas Saysongkham",
+      "Weston Warner",
+      "Amy Binkley",
+      "Grace Gin",
+      "Henry Ovalle"
+    ],
+    "Weston Warner": [
+      "Darrell Bentley",
+      "Paul Hall",
+      "Norah Booth",
+      "John Butler",
+      "Don Guerra",
+      "Maria Moreno",
+      "Alexander Fife"
+    ],
+    "Martha Nellis": [
+      "Don Guerra",
+      "Kendra Ellis",
+      "Alexander Fife",
+      "Rosalinda Whitfield",
+      "Justin Martin"
+    ],
+    "Paul Hall": [
+      "Angelo Bassetti",
+      "Lenora Tyree",
+      "Matthew Cannon",
+      "Weston Warner",
+      "Alexander Fife",
+      "Keith Pickering"
+    ],
+    "Matthew Cannon": [
+      "Norah Booth",
+      "Caridad Cruz",
+      "Don Guerra",
+      "Robert Duchene",
+      "Jesse Bragg",
+      "Maria Moreno",
+      "Elizabeth Brendel"
+    ],
+    "Alexander Fife": [
+      "Norah Booth",
+      "Caridad Cruz",
+      "Riley Jones",
+      "Peggy Battle",
+      "Christopher Smith",
+      "Grace Gin"
+    ],
+    "Gloria Scott": [
+      "Martha Nellis",
+      "Tony Soffel",
+      "Sandra Simmons",
+      "Robert Duchene",
+      "Thomas Saysongkham",
+      "Christopher Smith"
+    ],
+    "Lenora Tyree": [
+      "Paul Hall",
+      "Terrance Hummer",
+      "Martha Nellis",
+      "Norah Booth",
+      "Caridad Cruz",
+      "John Butler",
+      "Dominic Brown",
+      "Don Guerra",
+      "Billy Perry",
+      "Jesse Bragg",
+      "Maria Moreno",
+      "Kendra Ellis",
+      "Weston Warner",
+      "Alexander Fife",
+      "Amy Binkley",
+      "Grace Gin",
+      "Keith Pickering"
+    ],
+    "Angelo Bassetti": [
+      "Paul Hall",
+      "Riley Jones",
+      "Tony Soffel",
+      "Rosemary Winston",
+      "Sandra Simmons",
+      "Thomas Saysongkham",
+      "Maria Moreno",
+      "Gloria Scott",
+      "Rebecca Knoblock",
+      "Kelly Garner"
+    ],
+    "Sandra Simmons": [
+      "Tony Soffel",
+      "Alexander Fife",
+      "Rosalinda Whitfield",
+      "Clifford Hornbeck",
+      "Amy Binkley",
+      "Rebecca Knoblock",
+      "Justin Martin",
+      "Kelly Garner"
+    ],
+    "Amy Binkley": [
+      "Terrance Hummer",
+      "Angelo Bassetti",
+      "Caridad Cruz",
+      "Rosemary Winston",
+      "Dominic Brown",
+      "Tracy Hall",
+      "Jesse Bragg",
+      "Kendra Ellis",
+      "Rosalinda Whitfield",
+      "Rebecca Knoblock"
+    ],
+    "Norah Booth": [
+      "Paul Hall",
+      "Terrance Hummer",
+      "Angelo Bassetti",
+      "John Butler",
+      "Riley Jones",
+      "Tony Soffel",
+      "Sandra Simmons",
+      "Don Guerra",
+      "Robert Duchene",
+      "Justin Martin",
+      "Grace Gin",
+      "Henry Ovalle"
+    ],
+    "Riley Jones": [
+      "Thomas Saysongkham",
+      "Billy Perry",
+      "Kendra Ellis",
+      "Rosalinda Whitfield",
+      "Clifford Hornbeck",
+      "Elizabeth Brendel",
+      "Henry Ovalle",
+      "Keith Pickering"
+    ],
+    "Michael Hylton": [
+      "Terrance Hummer",
+      "John Butler",
+      "Tony Soffel",
+      "Kendra Ellis",
+      "Weston Warner",
+      "Clifford Hornbeck",
+      "Elizabeth Brendel",
+      "Keith Pickering"
+    ],
+    "Clifford Hornbeck": [
+      "Rosemary Winston",
+      "Sandra Simmons",
+      "Don Guerra",
+      "Billy Perry",
+      "Weston Warner",
+      "Alexander Fife",
+      "Amy Binkley",
+      "Christopher Smith"
+    ],
+    "Rosalinda Whitfield": [
+      "Terrance Hummer",
+      "Angelo Bassetti",
+      "John Butler",
+      "Tony Soffel",
+      "Dominic Brown",
+      "Don Guerra",
+      "Tracy Hall",
+      "Jesse Bragg",
+      "Amy Binkley",
+      "Gloria Scott",
+      "Christopher Smith",
+      "Michael Hylton",
+      "Tora Coleman"
+    ],
+    "Jesse Bragg": [
+      "John Butler",
+      "Lenora Tyree",
+      "Sandra Simmons",
+      "Maria Moreno",
+      "Matthew Cannon",
+      "Kendra Ellis",
+      "Elizabeth Brendel",
+      "Christopher Smith",
+      "Rebecca Knoblock",
+      "Tora Coleman",
+      "Kelly Garner",
+      "Keith Pickering"
+    ],
+    "Don Guerra": [
+      "Caridad Cruz",
+      "Riley Jones",
+      "Tracy Hall",
+      "Thomas Saysongkham",
+      "Billy Perry",
+      "Jesse Bragg",
+      "Peggy Battle",
+      "Kelly Garner",
+      "Henry Ovalle"
+    ],
+    "Keith Pickering": [
+      "Riley Jones",
+      "Tony Soffel",
+      "Dominic Brown",
+      "Maria Moreno",
+      "Rebecca Knoblock"
+    ],
+    "Darrell Bentley": [
+      "Lenora Tyree",
+      "Dominic Brown",
+      "Robert Duchene",
+      "Jesse Bragg",
+      "Weston Warner",
+      "Keith Pickering"
+    ],
+    "Tora Coleman": [
+      "Norah Booth",
+      "John Butler",
+      "Robert Duchene",
+      "Thomas Saysongkham",
+      "Gloria Scott",
+      "Christopher Smith",
+      "Michael Hylton",
+      "Justin Martin"
+    ],
+    "Caridad Cruz": [
+      "Dominic Brown",
+      "Sandra Simmons",
+      "Robert Duchene",
+      "Weston Warner",
+      "Elizabeth Brendel",
+      "Amy Binkley",
+      "Henry Ovalle"
+    ],
+    "Grace Gin": [
+      "Norah Booth",
+      "Weston Warner",
+      "Amy Binkley",
+      "Rebecca Knoblock"
+    ],
+    "Peggy Battle": [
+      "Terrance Hummer",
+      "John Butler",
+      "Robert Duchene",
+      "Maria Moreno",
+      "Matthew Cannon",
+      "Clifford Hornbeck",
+      "Elizabeth Brendel"
+    ]
+  },
+  "interpersonal_refusals": {
+    "Rosemary Winston": [
+      "Maria Moreno",
+      "Rosalinda Whitfield",
+      "Christopher Smith"
+    ],
+    "Billy Perry": [
+      "Sandra Simmons",
+      "Rosalinda Whitfield",
+      "Grace Gin"
+    ],
+    "Kendra Ellis": [],
+    "Henry Ovalle": [
+      "Norah Booth",
+      "Christopher Smith",
+      "Kelly Garner"
+    ],
+    "Justin Martin": [
+      "Angelo Bassetti",
+      "Clifford Hornbeck"
+    ],
+    "Thomas Saysongkham": [
+      "Caridad Cruz"
+    ],
+    "Robert Duchene": [
+      "Riley Jones",
+      "Tracy Hall",
+      "Weston Warner",
+      "Clifford Hornbeck",
+      "Tora Coleman"
+    ],
+    "Rebecca Knoblock": [
+      "Darrell Bentley"
+    ],
+    "John Butler": [
+      "Rebecca Knoblock",
+      "Kelly Garner"
+    ],
+    "Tony Soffel": [
+      "Christopher Smith"
+    ],
+    "Terrance Hummer": [
+      "Jesse Bragg",
+      "Clifford Hornbeck",
+      "Elizabeth Brendel"
+    ],
+    "Dominic Brown": [
+      "Terrance Hummer",
+      "Rosemary Winston",
+      "Robert Duchene",
+      "Billy Perry",
+      "Kendra Ellis"
+    ],
+    "Christopher Smith": [
+      "Caridad Cruz",
+      "Sandra Simmons",
+      "Robert Duchene",
+      "Justin Martin"
+    ],
+    "Tracy Hall": [
+      "Terrance Hummer",
+      "Alexander Fife",
+      "Amy Binkley",
+      "Rebecca Knoblock"
+    ],
+    "Kelly Garner": [
+      "John Butler",
+      "Kendra Ellis",
+      "Amy Binkley"
+    ],
+    "Maria Moreno": [
+      "Amy Binkley"
+    ],
+    "Elizabeth Brendel": [
+      "John Butler",
+      "Peggy Battle",
+      "Keith Pickering"
+    ],
+    "Weston Warner": [
+      "Martha Nellis"
+    ],
+    "Martha Nellis": [
+      "Gloria Scott",
+      "Tora Coleman"
+    ],
+    "Paul Hall": [
+      "Tony Soffel",
+      "Robert Duchene",
+      "Thomas Saysongkham",
+      "Henry Ovalle"
+    ],
+    "Matthew Cannon": [
+      "Paul Hall",
+      "Peggy Battle"
+    ],
+    "Alexander Fife": [
+      "Sandra Simmons",
+      "Don Guerra",
+      "Thomas Saysongkham"
+    ],
+    "Gloria Scott": [
+      "Lenora Tyree",
+      "Riley Jones",
+      "Tracy Hall",
+      "Maria Moreno"
+    ],
+    "Lenora Tyree": [
+      "Angelo Bassetti",
+      "Clifford Hornbeck"
+    ],
+    "Angelo Bassetti": [
+      "John Butler",
+      "Robert Duchene",
+      "Tora Coleman"
+    ],
+    "Sandra Simmons": [
+      "Caridad Cruz",
+      "Matthew Cannon"
+    ],
+    "Amy Binkley": [
+      "Martha Nellis",
+      "Norah Booth",
+      "Sandra Simmons",
+      "Don Guerra",
+      "Elizabeth Brendel",
+      "Keith Pickering"
+    ],
+    "Norah Booth": [
+      "Dominic Brown",
+      "Elizabeth Brendel"
+    ],
+    "Riley Jones": [
+      "Justin Martin"
+    ],
+    "Michael Hylton": [
+      "Lenora Tyree",
+      "Billy Perry",
+      "Amy Binkley"
+    ],
+    "Clifford Hornbeck": [
+      "Darrell Bentley",
+      "Angelo Bassetti"
+    ],
+    "Rosalinda Whitfield": [
+      "Clifford Hornbeck",
+      "Henry Ovalle"
+    ],
+    "Jesse Bragg": [
+      "Paul Hall",
+      "Norah Booth",
+      "Tony Soffel",
+      "Rosemary Winston"
+    ],
+    "Don Guerra": [],
+    "Keith Pickering": [
+      "Thomas Saysongkham",
+      "Christopher Smith",
+      "Henry Ovalle"
+    ],
+    "Darrell Bentley": [
+      "Norah Booth",
+      "Caridad Cruz",
+      "Tony Soffel",
+      "Billy Perry",
+      "Alexander Fife",
+      "Rosalinda Whitfield",
+      "Michael Hylton"
+    ],
+    "Tora Coleman": [
+      "Lenora Tyree",
+      "Grace Gin"
+    ],
+    "Caridad Cruz": [
+      "Gloria Scott",
+      "Grace Gin"
+    ],
+    "Grace Gin": [
+      "Darrell Bentley",
+      "Tony Soffel",
+      "Rosemary Winston",
+      "Robert Duchene",
+      "Christopher Smith",
+      "Justin Martin"
+    ],
+    "Peggy Battle": [
+      "Paul Hall",
+      "Kendra Ellis"
+    ]
+  }
+}
