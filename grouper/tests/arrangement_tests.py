@@ -6,7 +6,7 @@ import os
 
 class arrangementTestCase(unittest.TestCase):
   def setUp(self):
-    self.arrangement = Arrangement()
+    self.arrangement = Arrangement(os.path.abspath(os.path.join('grouper/sample_data/affinities.json')))
 
   def test_arrangement_exists(self):
     self.assertIsInstance(self.arrangement, Arrangement)
@@ -40,12 +40,15 @@ class arrangementTestCase(unittest.TestCase):
     self.assertIs(participant.group, group)
 
   def test_arrangement_can_read_from_file(self):
-    arrangement = Arrangement(os.path.abspath(os.path.join('grouper/sample_data/affinities.json')))
-    self.assertEqual(len(arrangement.participants), 20)
-    self.assertIsInstance(arrangement.participants[1], Participant)
-    self.assertEqual(arrangement.participants[0].name, 'Mary Polster')
+    self.assertEqual(len(self.arrangement.participants), 20)
+    self.assertIsInstance(self.arrangement.participants[1], Participant)
+    self.assertEqual(self.arrangement.participants[0].name, 'Mary Polster')
 
   def test_arrangement_can_assign_participants_to_group(self):
-    arrangement = Arrangement(os.path.abspath(os.path.join('grouper/sample_data/affinities.json')))
-    self.assertEqual(len(arrangement.groups[0].participants), 4)
-    self.assertEqual(arrangement.groups[0].participants[0].name, 'Mary Polster')
+    self.assertEqual(len(self.arrangement.groups[0].participants), 4)
+    self.assertEqual(self.arrangement.groups[0].participants[0].name, 'Mary Polster')
+
+  def test_arrangement_scoring_function(self):
+    self.arrangement.groups = []
+    group = Group()
+    # TODO: Finish arrangement scoring function/tests

@@ -10,6 +10,8 @@ class Group:
   def removeParticipant(self, participant):
     self.participants.remove(participant)
 
+  # TODO:
+  # Add weights. Right now, every affinity/refusal is just +- 1 point.
   def getScore(self):
     score = 0
     for participant1 in self.participants:
