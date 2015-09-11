@@ -21,11 +21,13 @@ class Arrangement:
     i = 0
     result += 'Participants:\n'
     for participant in self.participants:
-      result += participant.name + '\n'
+      result += participant.name + ', '
+    result = result[:-2] + '\nGroups:\n' 
     for group in self.groups:
       result += "Group " + str(i) + "\n"
       for participant in group.participants:
-        result += participant.name + ' '
+        result += participant.name + ', '
+      result = result[:-2]
       result += '\n'
       i += 1
     return result
