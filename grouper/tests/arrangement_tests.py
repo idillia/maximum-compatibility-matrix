@@ -7,6 +7,12 @@ import os
 class arrangementTestCase(unittest.TestCase):
   def setUp(self):
     self.arrangement = Arrangement(os.path.abspath(os.path.join('grouper/sample_data/affinities.json')))
+    self.p1 = Participant("Eric")
+    self.p2 = Participant("Sam")
+    self.p3 = Participant("Glenn")
+    self.p4 = Participant("Taylor")
+    self.g1 = Group()
+    self.g2 = Group()
 
   def test_arrangement_exists(self):
     self.assertIsInstance(self.arrangement, Arrangement)
@@ -22,22 +28,19 @@ class arrangementTestCase(unittest.TestCase):
     self.assertIsInstance(self.arrangement.groups[0], Group)
 
   def test_arrangement_get_participant(self):
-    self.arrangement.addParticipant(Participant('eric'))
-    participant = self.arrangement.getParticipant('eric')
-    self.assertIsInstance(self.arrangement.getParticipant('eric'), Participant)
+    self.arrangement.addParticipant(self.p1)
+    participant = self.arrangement.getParticipant('Eric')
+    self.assertIsInstance(self.arrangement.getParticipant('Eric'), Participant)
 
   def test_arrangement_add_participant(self):
-    participant = Participant('eric')
-    self.arrangement.addParticipant(participant)
+    self.arrangement.addParticipant(self.p1)
     self.assertIsInstance(self.arrangement.participants[0], Participant)
 
   def test_arrangement_can_add_participant_to_group(self):
-    participant = Participant('eric')
-    group = Group()
-    group2 = Group()
-    self.arrangement.addParticipantToGroup(participant, group)
-    self.assertIs(group.participants[0], participant)
-    self.assertIs(participant.group, group)
+    self.arrangement.groups[0] = self.g1
+    self.arrangement.addParticipantToGroup(self.p1, self.g1)
+    self.assertIs(self.arrangement.groups[0].participants[0], self.p1)
+    self.assertIs(self.p1.group, self.g1)
 
   def test_arrangement_can_read_from_file(self):
     self.assertEqual(len(self.arrangement.participants), 20)
@@ -45,10 +48,42 @@ class arrangementTestCase(unittest.TestCase):
     self.assertEqual(self.arrangement.participants[0].name, 'Mary Polster')
 
   def test_arrangement_can_assign_participants_to_group(self):
-    self.assertEqual(len(self.arrangement.groups[0].participants), 4)
-    self.assertEqual(self.arrangement.groups[0].participants[0].name, 'Mary Polster')
+    a = Arrangement()
+    a.addParticipant(self.p1)
+    a.addParticipant(self.p2)
+    a.addParticipant(self.p3)
+    a.addParticipant(self.p4)
+    a.assignParticipantsToGroups(2)
+    self.assertEqual(len(a.groups[0].participants), 2)
+    self.assertEqual(a.groups[0].participants[0].name, 'Eric')
 
   def test_arrangement_scoring_function(self):
     self.arrangement.groups = []
     group = Group()
     # TODO: Finish arrangement scoring function/tests
+
+  def test_get_unhappiest_group(self):
+    a = Arrangement()
+    a.addGroup()
+    a.addGroup()
+    p1 = Participant('eric')
+    p2 = Participant('john')
+    p3 = Participant('sam')
+    p4 = Participant('glenn')
+    p1.addAffinity(p3)
+    p1.addAffinity(p4)
+    p2.addTechnicalRefusal(p4)
+    a.addParticipantToGroup(p1, a.groups[0])
+    a.addParticipantToGroup(p3, a.groups[0])
+    a.addParticipantToGroup(p2, a.groups[1])
+    a.addParticipantToGroup(p4, a.groups[1])
+    print a.getUnhappiestGroup()
+    self.assertEqual(a.getUnhappiestGroup(), a.groups[1])
+
+  def test_remove_participant_from_group(self):
+    a = Arrangement()
+    g = Group()
+    a.addGroup(g)
+    a.addParticipantToGroup(self.p1, g)
+    self.assertEqual(a.groups[0].participants[0].name, 'Eric')
+    a.removeParticipantFromGroup(self.p1)

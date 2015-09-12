@@ -2,6 +2,7 @@ class Group:
 
   def __init__(self):
     self.participants = []
+    self.score = None
 
   def __repr__(self):
     result = ''
@@ -22,14 +23,16 @@ class Group:
   # TODO:
   # Add weights. Right now, every affinity/refusal is just +- 1 point.
   def getScore(self):
-    score = 0
-    for participant1 in self.participants:
-      for participant2 in self.participants:
-        if participant1 != participant2:
-          if participant2 in participant1.affinities:
-            score += 1
-          if participant2 in participant1.technicalRefusals:
-            score -= 10
-          if participant2 in participant1.interpersonalRefusals:
-            score -= 10
-    return score
+    if self.score == None:
+      score = 0
+      for participant1 in self.participants:
+        for participant2 in self.participants:
+          if participant1 != participant2:
+            if participant2 in participant1.affinities:
+              score += 1
+            if participant2 in participant1.technicalRefusals:
+              score -= 100
+            if participant2 in participant1.interpersonalRefusals:
+              score -= 100
+      self.score = score
+    return self.score

@@ -35,8 +35,11 @@ class Arrangement:
   def getParticipant(self, name):
     return next(p for p in self.participants if p.name == name)
 
-  def addGroup(self):
-    self.groups.append(Group())
+  def addGroup(self, group = None):
+    #TODO: Handle passing in a group with participants.
+    # Add participants to list. Etc...
+    group = group or Group()
+    self.groups.append(group)
 
   def addParticipant(self, participant):
     self.participants.append(participant)
@@ -44,6 +47,12 @@ class Arrangement:
   def addParticipantToGroup(self, participant, group):
     participant.addToGroup(group)
     group.addParticipant(participant)
+
+  # TODO: Test
+  def removeParticipantFromGroup(self, participant):
+    group = participant.group
+    participant.removeFromGroup()
+    group.removeParticipant(participant)
 
   def calculateScore(self):
     return sum(group.getScore() for group in self.groups)
@@ -93,3 +102,23 @@ class Arrangement:
     firstIndividual = self.groups[firstGroupIndex].participants[firstIndividualIndex]
     self.groups[firstGroupIndex].participants[firstIndividualIndex] = self.groups[secondGroupIndex].participants[secondIndividualIndex]
     self.groups[secondGroupIndex].participants[secondIndividualIndex] = firstIndividual
+
+  def getUnhappiestGroup(self):
+    return reduce(lambda g, a: g.getScore() if g.getScore() < a else a, self.groups)
+
+  # TODO: Test
+  def swapIndividuals(self, a, b):
+    bGroup = b.group
+    aGroup = a.group
+    self.removeParticipantFromGroup(b)
+    self.addParticipantToGroup(a, bGroup)
+    self.addParticipantToGroup(b, aGroup)
+
+  def makeBestSwap(self):
+    for i in self.numGroups:
+      for p1 in self.groups[i]:
+        for j in self.numGroups:
+          if not i == j:
+            for p2 in self.groups[j]:
+              self.swapIndividuals(p1, p2)
+

@@ -4,13 +4,15 @@ from grouper.group import Group
 from grouper.participant import Participant
 from grouper.strategy import Strategy
 
-arrangement = Arrangement('grouper/sample_data/affinities.json')
+arrangement = Arrangement('grouper/sample_data/class.json')
 
 strategy = Strategy(arrangement)
 
 # print arrangement
 
-arrangements = [Arrangement('grouper/sample_data/affinities.json') for x in range(10)]
+arrangements = [Arrangement('grouper/sample_data/class.json') for x in range(10)]
+for arrangement in arrangements:
+  arrangement.randomizeGroups()
 # print arrangements[-3]
 # for arrangement in arrangements:
 #   for i in range(5):
@@ -21,10 +23,10 @@ arrangements = [Arrangement('grouper/sample_data/affinities.json') for x in rang
 # result = sorted(arrangements, key=lambda x: x.score)
 # print result
 
-for i in range(0, 200):
+for i in range(0, 20):
   tempArrangements = []
   for arrangement in arrangements:
-    for i in range(3):
+    for i in range(10):
       arrangement.swapRandomIndividuals()
       arrangement.score = arrangement.calculateScore()
       tempArrangements.append(copy.deepcopy(arrangement))
