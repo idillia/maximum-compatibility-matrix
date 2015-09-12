@@ -3,6 +3,15 @@ class Group:
   def __init__(self):
     self.participants = []
 
+  def __repr__(self):
+    result = ''
+    i = 0
+    result += "Group Score: " + str(self.getScore()) + '\n'
+    for p in self.participants:
+      result += p.name + ', '
+    result = result[:-2] + '\n'
+    return result
+
   def addParticipant(self, participant):
     participant.addToGroup(self)
     self.participants.append(participant)
@@ -20,7 +29,7 @@ class Group:
           if participant2 in participant1.affinities:
             score += 1
           if participant2 in participant1.technicalRefusals:
-            score -= 1
+            score -= 10
           if participant2 in participant1.interpersonalRefusals:
-            score -= 1
+            score -= 10
     return score

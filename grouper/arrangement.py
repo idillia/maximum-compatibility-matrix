@@ -1,4 +1,5 @@
 import json
+import random
 from strategy import Strategy
 from participant import Participant
 from group import Group
@@ -19,17 +20,16 @@ class Arrangement:
   def __repr__(self):
     result = ''
     i = 0
+    result += "Arrangement with Score: " + str(self.score) + '\n'
     result += 'Participants:\n'
     for participant in self.participants:
       result += participant.name + ', '
     result = result[:-2] + '\nGroups:\n' 
     for group in self.groups:
       result += "Group " + str(i) + "\n"
-      for participant in group.participants:
-        result += participant.name + ', '
-      result = result[:-2]
-      result += '\n'
+      result += group.__repr__() + '\n'
       i += 1
+    result += '\n'
     return result
 
   def getParticipant(self, name):
@@ -45,8 +45,8 @@ class Arrangement:
     participant.addToGroup(group)
     group.addParticipant(participant)
 
-  def calculateScore(self, strategy):
-    return strategy.calculateArrangementScore(self)
+  def calculateScore(self):
+    return sum(group.getScore() for group in self.groups)
 
   def readParticipantsFromFile(self, filename):
     f = open(filename)
