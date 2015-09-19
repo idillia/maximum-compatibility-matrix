@@ -47,12 +47,14 @@ class Arrangement:
   def addParticipantToGroup(self, participant, group):
     participant.addToGroup(group)
     group.addParticipant(participant)
+    group.getScore()
 
   # TODO: Test
   def removeParticipantFromGroup(self, participant):
     group = participant.group
     participant.removeFromGroup()
     group.removeParticipant(participant)
+    group.getScore()
 
   def calculateScore(self):
     return sum(group.getScore() for group in self.groups)
@@ -122,3 +124,5 @@ class Arrangement:
             for p2 in self.groups[j]:
               self.swapIndividuals(p1, p2)
 
+  def makeBestSwapFromUnhappiestGroup(self):
+    return

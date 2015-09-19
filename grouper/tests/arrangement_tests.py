@@ -7,12 +7,21 @@ import os
 class arrangementTestCase(unittest.TestCase):
   def setUp(self):
     self.arrangement = Arrangement(os.path.abspath(os.path.join('grouper/sample_data/affinities.json')))
+    self.arrangement2 = Arrangement()
     self.p1 = Participant("Eric")
     self.p2 = Participant("Sam")
     self.p3 = Participant("Glenn")
     self.p4 = Participant("Taylor")
     self.g1 = Group()
     self.g2 = Group()
+    self.arrangement2.addParticipant(self.p1)
+    self.arrangement2.addParticipant(self.p2)
+    self.arrangement2.addParticipant(self.p3)
+    self.arrangement2.addParticipant(self.p4)
+    self.arrangement2.addGroup(self.g1)
+    self.arrangement2.addGroup(self.g2)
+
+
 
   def test_arrangement_exists(self):
     self.assertIsInstance(self.arrangement, Arrangement)
@@ -104,4 +113,14 @@ class arrangementTestCase(unittest.TestCase):
   # the score of the arrangement. 
   # We don't want the arrangement score checking code inside this function.
   # https://www.jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/
-  def test_
+  def test_makes_best_swap_from_unhappiest_group(self):
+    self.p1.addAffinity(self.p2)
+    self.p1.addAffinity(self.p4)
+    self.p1.addTechnicalRefusal(self.p3)
+    self.p2.addAffinity(self.p3)
+    self.arrangement2.addParticipantToGroup(self.p1, self.g1)
+    self.arrangement2.addParticipantToGroup(self.p3, self.g1)
+    self.arrangement2.addParticipantToGroup(self.p2, self.g2)
+    self.arrangement2.addParticipantToGroup(self.p4, self.g2)
+    self.arrangement2.makeBestSwapFromUnhappiestGroup()
+    self.assertEqual(self.arrangement2.calculateScore(), 3)
