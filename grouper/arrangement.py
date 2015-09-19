@@ -125,6 +125,8 @@ class Arrangement:
             for p2 in self.groups[j]:
               self.swapIndividuals(p1, p2)
 
+  # This should be pulled out into a subclass or Arrangement Strategy or something.
+  
   def makeBestSwapFromUnhappiestGroup(self):
     bestGain = 0
     bestSwap = (None, None)
