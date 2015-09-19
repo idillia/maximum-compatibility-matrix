@@ -104,7 +104,6 @@ class arrangementTestCase(unittest.TestCase):
     a.addParticipantToGroup(p3, a.groups[0])
     a.addParticipantToGroup(p2, a.groups[1])
     a.addParticipantToGroup(p4, a.groups[1])
-    print a.getUnhappiestGroup()
     self.assertEqual(a.getUnhappiestGroup(), a.groups[1])
 
   # I think I just found a perfect use case for generators and yield
@@ -123,4 +122,4 @@ class arrangementTestCase(unittest.TestCase):
     self.arrangement2.addParticipantToGroup(self.p2, self.g2)
     self.arrangement2.addParticipantToGroup(self.p4, self.g2)
     self.arrangement2.makeBestSwapFromUnhappiestGroup()
-    self.assertEqual(self.arrangement2.calculateScore(), 3)
+    self.assertEqual(self.arrangement2.calculateScore(), 2)

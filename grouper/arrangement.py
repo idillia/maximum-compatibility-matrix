@@ -113,6 +113,7 @@ class Arrangement:
     bGroup = b.group
     aGroup = a.group
     self.removeParticipantFromGroup(b)
+    self.removeParticipantFromGroup(a)
     self.addParticipantToGroup(a, bGroup)
     self.addParticipantToGroup(b, aGroup)
 
@@ -125,6 +126,16 @@ class Arrangement:
               self.swapIndividuals(p1, p2)
 
   def makeBestSwapFromUnhappiestGroup(self):
+    bestGain = 0
+    bestSwap = (None, None)
     unhappiestGroup = self.getUnhappiestGroup()
-    print unhappiestGroup
-    return unhappiestGroup
+    for participant1 in unhappiestGroup.participants:
+      for group in self.groups:
+        if group != unhappiestGroup:
+          for participant2 in group.participants:
+            self.swapIndividuals(participant1, participant2)
+            if self.calculateScore() > bestGain:
+              bestGain = self.calculateScore()
+              bestSwap = (participant1, participant2)
+            self.swapIndividuals(participant1, participant2)
+    self.swapIndividuals(bestSwap[0], bestSwap[1])
