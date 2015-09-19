@@ -106,7 +106,7 @@ class Arrangement:
     self.groups[secondGroupIndex].participants[secondIndividualIndex] = firstIndividual
 
   def getUnhappiestGroup(self):
-    return reduce(lambda g, a: g.getScore() if g.getScore() < a else a, self.groups)
+    return reduce(lambda g, a: g if g.getScore() < a.getScore() else a, self.groups)
 
   # TODO: Test
   def swapIndividuals(self, a, b):
@@ -125,4 +125,6 @@ class Arrangement:
               self.swapIndividuals(p1, p2)
 
   def makeBestSwapFromUnhappiestGroup(self):
-    return
+    unhappiestGroup = self.getUnhappiestGroup()
+    print unhappiestGroup
+    return unhappiestGroup
