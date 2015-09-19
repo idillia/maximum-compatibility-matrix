@@ -46,4 +46,4 @@ class groupTestCase(unittest.TestCase):
     self.participant3.addTechnicalRefusal(self.participant1)
     self.participant1.addTechnicalRefusal(self.participant3)
     self.participant1.addInterpersonalRefusal(self.participant3)
-    self.assertEqual(self.group.getScore(), -1)
+    self.assertEqual(self.group.getScore(), -298)

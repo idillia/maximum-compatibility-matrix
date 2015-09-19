@@ -23,13 +23,16 @@ for arrangement in arrangements:
 # result = sorted(arrangements, key=lambda x: x.score)
 # print result
 
-for i in range(0, 20):
-  tempArrangements = []
+for x in range(0, 10):
   for arrangement in arrangements:
-    for i in range(10):
-      arrangement.swapRandomIndividuals()
+    arrangement.randomizeGroups()
+  for i in range(0, 40):
+    tempArrangements = []
+    for arrangement in arrangements:
+      for i in range(5):
+        arrangement.swapRandomIndividuals()
       arrangement.score = arrangement.calculateScore()
       tempArrangements.append(copy.deepcopy(arrangement))
-  result = sorted(tempArrangements, key=lambda x: x.score)
-  arrangements = result[-10:]
+    result = sorted(tempArrangements, key=lambda x: x.score)
+    arrangements = result[-10:]
 print arrangements

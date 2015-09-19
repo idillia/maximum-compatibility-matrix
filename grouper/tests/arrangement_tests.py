@@ -62,6 +62,24 @@ class arrangementTestCase(unittest.TestCase):
     group = Group()
     # TODO: Finish arrangement scoring function/tests
 
+  def test_remove_participant_from_group(self):
+    a = Arrangement()
+    g = Group()
+    a.addGroup(g)
+    a.addParticipantToGroup(self.p1, g)
+    self.assertEqual(a.groups[0].participants[0].name, 'Eric')
+    a.removeParticipantFromGroup(self.p1)
+    # Cool way to test the index no longer exists. Trying to access
+    # an index out of range raises an IndexError exception.
+    with self.assertRaises(IndexError):
+        a.groups[0].participants[0]
+    # Yeah... len() might work too, and might be more understandable
+    # without comments. But this is cool, and these are comments.
+    
+  # These next tests are something that should be abstracted out into a strategy
+  # We want to be able to swap the each person from the unhappiest group
+  # into each other group until and keep the "best" arrangement from those
+  # swaps.
   def test_get_unhappiest_group(self):
     a = Arrangement()
     a.addGroup()
@@ -80,10 +98,10 @@ class arrangementTestCase(unittest.TestCase):
     print a.getUnhappiestGroup()
     self.assertEqual(a.getUnhappiestGroup(), a.groups[1])
 
-  def test_remove_participant_from_group(self):
-    a = Arrangement()
-    g = Group()
-    a.addGroup(g)
-    a.addParticipantToGroup(self.p1, g)
-    self.assertEqual(a.groups[0].participants[0].name, 'Eric')
-    a.removeParticipantFromGroup(self.p1)
+  # I think I just found a perfect use case for generators and yield
+  # I want to loop over each person in a group, swap that person with each
+  # person in each other group, and after each swap, check to see
+  # the score of the arrangement. 
+  # We don't want the arrangement score checking code inside this function.
+  # https://www.jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/
+  def test_
