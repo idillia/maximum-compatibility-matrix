@@ -23,16 +23,29 @@ for arrangement in arrangements:
 # result = sorted(arrangements, key=lambda x: x.score)
 # print result
 
-for x in range(0, 10):
-  for arrangement in arrangements:
-    arrangement.randomizeGroups()
-  for i in range(0, 40):
-    tempArrangements = []
-    for arrangement in arrangements:
-      for i in range(5):
-        arrangement.swapRandomIndividuals()
-      arrangement.score = arrangement.calculateScore()
-      tempArrangements.append(copy.deepcopy(arrangement))
-    result = sorted(tempArrangements, key=lambda x: x.score)
-    arrangements = result[-10:]
-print arrangements
+
+# ------------- Genetic Algorithm. Random Swaps -------------#
+# for x in range(0, 10):
+#   for arrangement in arrangements:
+#     arrangement.randomizeGroups()
+#   for i in range(0, 40):
+#     tempArrangements = []
+#     for arrangement in arrangements:
+#       for i in range(5):
+#         arrangement.swapRandomIndividuals()
+#       arrangement.score = arrangement.calculateScore()
+#       tempArrangements.append(copy.deepcopy(arrangement))
+#     result = sorted(tempArrangements, key=lambda x: x.score)
+#     arrangements = result[-10:]
+# print arrangements
+
+
+#-------------- Make best swap from unhappiest group -----------#
+for arrangement in arrangements:
+  arrangement.randomizeGroups()
+  for i in range(0, 10):
+    arrangement.makeBestSwapFromUnhappiestGroup()
+    print arrangement
+  arrangement.score = arrangement.calculateScore()
+result = sorted(arrangements, key=lambda x: x.score)
+print result

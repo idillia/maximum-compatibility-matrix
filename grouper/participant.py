@@ -18,6 +18,9 @@ class Participant:
       'affinities': self.addAffinity
     }
 
+  def __getitem__(self, i):
+    return getattr(self, i)
+
   def __repr__(self):
     result = 'Participant Name: ' + self.name + ':\n'
     result += 'Affinities: \n'

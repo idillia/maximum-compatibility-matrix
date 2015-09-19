@@ -126,7 +126,6 @@ class Arrangement:
               self.swapIndividuals(p1, p2)
 
   # This should be pulled out into a subclass or Arrangement Strategy or something.
-  
   def makeBestSwapFromUnhappiestGroup(self):
     bestGain = 0
     bestSwap = (None, None)
@@ -140,4 +139,6 @@ class Arrangement:
               bestGain = self.calculateScore()
               bestSwap = (participant1, participant2)
             self.swapIndividuals(participant1, participant2)
-    self.swapIndividuals(bestSwap[0], bestSwap[1])
+    # Only swap if we there is a better swap to make.
+    if bestSwap[0] != None:
+      self.swapIndividuals(bestSwap[0], bestSwap[1])
