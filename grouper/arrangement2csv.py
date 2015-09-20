@@ -2,14 +2,15 @@
 
 # TODO: Remove these hardcoded survey types. Find a better way to get them
 # from the arrangement
-surveyTypes = ['affinities', 'technicalRefusals', 'interpersonalRefusals']
-surveyScores = {
-  'affinities': '1',
-  'technicalRefusals': '-100',
-  'interpersonalRefusals': '-100'
-}
 # TODO: Handle multiple forms of input, not just a json formatted this particular way
-def arrangement2csv(arrangement):
+def arrangement2csv(arrangement, filename = 'test.csv'):
+  surveyTypes = ['affinities', 'technicalRefusals', 'interpersonalRefusals']
+  surveyScores = {
+    'affinities': '1',
+    'technicalRefusals': '-100',
+    'interpersonalRefusals': '-100'
+  }
+
   # get a list of participants
 
   # for each participant as participant1
@@ -45,18 +46,26 @@ def arrangement2csv(arrangement):
           for surveyType in range(len(surveyTypes)):
             # if surveyType[participant1] contains participant2
             if participant2 in participant1[surveyTypes[surveyType]]:
-              print participant2.name + ' is in ' + participant1.name + "'s " + surveyTypes[surveyType]
+              # print participant2.name + ' is in ' + participant1.name + "'s " + surveyTypes[surveyType]
               # array.push(surveyScore[surveyType])
               surveyResponse += surveyScores[surveyTypes[surveyType]]
-              print surveyResponse
+              # print surveyResponse
           surveyAnswers.append(surveyResponse)
 
       # join array with commas
-      print surveyAnswers
+      # print surveyAnswers
       result.append(','.join(surveyAnswers))
       # append to result string with newline at end
-  print '\n'.join(result)
-  f = open('test.csv', 'w')
+  i = 0
+  for group in arrangement.groups:
+    result.append("Group " + str(i) + ": ")
+    ps = []
+    for participant in group.participants:
+      ps.append(participant.name)
+    result.append(', '.join(ps))
+    i+=1
+  # print '\n'.join(result)
+  f = open('/Users/eihli/Projects/private_sample_data/' + filename, 'w')
   f.write('\n'.join(result))
   f.close()
   # write result string to file

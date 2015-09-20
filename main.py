@@ -3,14 +3,15 @@ from grouper.arrangement import Arrangement
 from grouper.group import Group
 from grouper.participant import Participant
 from grouper.strategy import Strategy
+from grouper.arrangement2csv import arrangement2csv
 
-arrangement = Arrangement('grouper/sample_data/class.json')
+arrangement = Arrangement('/Users/eihli/Projects/private_sample_data/class.json')
 
 strategy = Strategy(arrangement)
 
 # print arrangement
 
-arrangements = [Arrangement('grouper/sample_data/class.json') for x in range(10)]
+arrangements = [Arrangement('/Users/eihli/Projects/private_sample_data/class.json') for x in range(10)]
 for arrangement in arrangements:
   arrangement.randomizeGroups()
 # print arrangements[-3]
@@ -49,3 +50,6 @@ for arrangement in arrangements:
   arrangement.score = arrangement.calculateScore()
 result = sorted(arrangements, key=lambda x: x.score)
 print result
+
+for i in range(1, 4):
+  arrangement2csv(result[-i], 'arrangement_' + str(i) + '.csv')

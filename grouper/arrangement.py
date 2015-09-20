@@ -1,4 +1,5 @@
 import json
+import math
 import random
 from strategy import Strategy
 from participant import Participant
@@ -12,7 +13,7 @@ class Arrangement:
     self.participants = []
     if (filename):
       self.readParticipantsFromFile(filename)
-    self.numGroups = len(self.participants) / NUM_INDIVIDUALS_PER_GROUP
+    self.numGroups = int(math.floor(len(self.participants) / NUM_INDIVIDUALS_PER_GROUP))
     self.assignParticipantsToGroups(self.numGroups)
     self.strategy = Strategy(self)
     self.score = None
