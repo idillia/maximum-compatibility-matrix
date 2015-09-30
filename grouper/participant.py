@@ -17,6 +17,10 @@ class Participant:
       'technical_refusals': self.addTechnicalRefusal,
       'affinities': self.addAffinity
     }
+    self.numAffinities = 0
+    self.numTechnicalRefusals = 0
+    self.numInterpersonalRefusals = 0
+    self.numTechnicalAndInterpersonalRefusals = 0
 
   def __getitem__(self, i):
     return getattr(self, i)
@@ -36,12 +40,19 @@ class Participant:
 
   def addAffinity(self, participant):
     self.affinities.append(participant)
+    self.numAffinities += 1
 
   def addInterpersonalRefusal(self, participant):
     self.interpersonalRefusals.append(participant)
+    self.numInterpersonalRefusals += 1
+    if participant not in self.technicalRefusals:
+      self.numTechnicalAndInterpersonalRefusals += 1
 
   def addTechnicalRefusal(self, participant):
     self.technicalRefusals.append(participant)
+    self.numTechnicalRefusals += 1
+    if participant not in self.interpersonalRefusals:
+      self.numTechnicalAndInterpersonalRefusals += 1
 
   def addToGroup(self, group):
     self.group = group

@@ -9,21 +9,9 @@ arrangement = Arrangement('/Users/eihli/Projects/private_sample_data/class.json'
 
 strategy = Strategy(arrangement)
 
-# print arrangement
-
 arrangements = [Arrangement('/Users/eihli/Projects/private_sample_data/class.json') for x in range(10)]
 for arrangement in arrangements:
   arrangement.randomizeGroups()
-# print arrangements[-3]
-# for arrangement in arrangements:
-#   for i in range(5):
-#     arrangement.swapRandomIndividuals()
-#   arrangement.score = arrangement.calculateScore()
-
-# result = map(lambda x: x.calculateScore(), arrangements)
-# result = sorted(arrangements, key=lambda x: x.score)
-# print result
-
 
 # ------------- Genetic Algorithm. Random Swaps -------------#
 # for x in range(0, 10):
@@ -42,13 +30,13 @@ for arrangement in arrangements:
 
 
 #-------------- Make best swap from unhappiest group -----------#
-for arrangement in arrangements:
+for arrangement in arrangements[0:3]:
   arrangement.randomizeGroups()
   for i in range(0, 10):
     arrangement.makeBestSwapFromUnhappiestGroup()
     print arrangement
   arrangement.score = arrangement.calculateScore()
-result = sorted(arrangements, key=lambda x: x.score)
+result = sorted(arrangements, key = lambda x: x.score)
 print result
 
 for i in range(1, 4):
