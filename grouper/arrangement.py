@@ -48,17 +48,17 @@ class Arrangement:
   def addParticipantToGroup(self, participant, group):
     participant.addToGroup(group)
     group.addParticipant(participant)
-    group.getWeightedScore(len(self.participants))
+    group.getScore()
 
   # TODO: Test
   def removeParticipantFromGroup(self, participant):
     group = participant.group
     participant.removeFromGroup()
     group.removeParticipant(participant)
-    group.getWeightedScore(len(self.participants))
+    group.getScore()
 
   def calculateScore(self):
-    return sum(group.getWeightedScore(len(self.participants)) for group in self.groups)
+    return sum(group.getScore() for group in self.groups)
 
   def readParticipantsFromFile(self, filename):
     f = open(filename)
@@ -107,7 +107,7 @@ class Arrangement:
     self.groups[secondGroupIndex].participants[secondIndividualIndex] = firstIndividual
 
   def getUnhappiestGroup(self):
-    return reduce(lambda g, a: g if g.getScore(len(self.participants)) < a.getScore(len(self.participants)) else a, self.groups)
+    return reduce(lambda g, a: g if g.getScore() < a.getScore() else a, self.groups)
 
   # TODO: Test
   def swapIndividuals(self, a, b):
