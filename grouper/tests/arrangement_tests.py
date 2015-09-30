@@ -6,7 +6,7 @@ import os
 
 class arrangementTestCase(unittest.TestCase):
   def setUp(self):
-    self.arrangement = Arrangement(os.path.abspath(os.path.join('grouper/sample_data/affinities.json')))
+    self.arrangement = Arrangement(filename = os.path.abspath(os.path.join('grouper/sample_data/affinities.json')))
     self.arrangement2 = Arrangement()
     self.p1 = Participant("Eric")
     self.p2 = Participant("Sam")

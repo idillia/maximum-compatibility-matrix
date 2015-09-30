@@ -8,11 +8,13 @@ NUM_INDIVIDUALS_PER_GROUP = 3
 
 class Arrangement:
   
-  def __init__(self, filename = None):
+  def __init__(self, filename = None, jsonString = None):
     self.groups = []
     self.participants = []
     if (filename):
       self.readParticipantsFromFile(filename)
+    if (jsonString):
+      self.loadParticipantsFromJson(jsonString)
     self.numGroups = int(math.floor(len(self.participants) / NUM_INDIVIDUALS_PER_GROUP))
     self.assignParticipantsToGroups(self.numGroups)
     self.strategy = Strategy(self)
@@ -71,6 +73,19 @@ class Arrangement:
           # set their affinity
           # print participant.name + ' ' + surveyType + ' ' + name
           participant.affinityDict[surveyType](self.getParticipant(name))
+
+  def loadParticipantsFromJson(self, jsonString):
+    survey = json.loads(jsonString)
+    print survey
+    for name in survey['technical_refusals']:
+      self.addParticipant(Participant(name))
+    for participant in self.participants:
+      for surveyType in survey:
+        for name in survey[surveyType][participant.name]:
+          # set their affinity
+          # print participant.name + ' ' + surveyType + ' ' + name
+          participant.affinityDict[surveyType](self.getParticipant(name))
+
 
   def assignParticipantsToGroups(self, numGroups):
     for i in range(numGroups):

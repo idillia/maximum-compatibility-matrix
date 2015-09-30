@@ -1,20 +1,39 @@
 #Optimal Grouping with Grouper
 
-##Classes
+##Current State
 
-###Individual (Participant - TODO: Rename/Refactor)
+###CSV Format
+1. A = Affinity
+1. I = Interpersonal Refusal
+1. T = Technical Refusal
+1. First row should be header with individual's names.
+1. First column should be transpose of first row.
+
+###Running The Algorithm
+- Open main.py in your editor and set your constants
+- Run ``python main.py``
+- main.py will convert the CSV to a JSON format that the algorithm can use.
+- Scoring is currently hardcoded into group.py, +1 for affinity and -100 for refusals.
+- The last 3 groups logged to the console will be the most optimal solutions.
+- Those groups will also be written to files defined in your constants.
+
+##The Idea
+
+###Classes
+
+####Individual (Currently named Participant - TODO: Rename/Refactor)
 
 Individuals have properties by which they are grouped.
 
-###Groups
+####Groups
 
 Groups of individuals. This class has a scoring function (Strategy) which returns the "fit" of the individuals inside a group.
 
-###Arrangements
+####Arrangements
 
 Groups of groups. This class also has a scoring function (Strategy) which returns the "fit" of all of the groups.
 
-###Strategy
+####Strategy
 
 Has knowledge of a class (Group, Arrangement). Registered by the class so that the class knows how to score and/or run. (We might need different Strategy classes for Groups and Arrangements.)
 
@@ -26,7 +45,7 @@ Has knowledge of a class (Group, Arrangement). Registered by the class so that t
   1. It will have a list of individuals.
   1. It will have a scoring function.
 
-###TODO: Finish the above
+####TODO: Finish the above
 
 ##Meanwhile...
 

@@ -65,7 +65,7 @@ def arrangement2csv(arrangement, filename = 'test.csv'):
     result.append(', '.join(ps))
     i+=1
   # print '\n'.join(result)
-  f = open('/Users/eihli/Projects/private_sample_data/' + filename, 'w')
+  f = open(filename, 'w')
   f.write('\n'.join(result))
   f.close()
   # write result string to file
