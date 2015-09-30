@@ -122,4 +122,6 @@ class arrangementTestCase(unittest.TestCase):
     self.arrangement2.addParticipantToGroup(self.p2, self.g2)
     self.arrangement2.addParticipantToGroup(self.p4, self.g2)
     self.arrangement2.makeBestSwapFromUnhappiestGroup()
+    self.assertEqual(self.arrangement2.calculateScore(), 1)
+    self.arrangement2.makeBestSwapFromUnhappiestGroup()
     self.assertEqual(self.arrangement2.calculateScore(), 2)

@@ -4,7 +4,7 @@ import random
 from strategy import Strategy
 from participant import Participant
 from group import Group
-NUM_INDIVIDUALS_PER_GROUP = 4
+NUM_INDIVIDUALS_PER_GROUP = 3
 
 class Arrangement:
   
@@ -135,11 +135,14 @@ class Arrangement:
       for group in self.groups:
         if group != unhappiestGroup:
           for participant2 in group.participants:
+            oldScore = self.calculateScore()
             self.swapIndividuals(participant1, participant2)
-            if self.calculateScore() > bestGain:
-              bestGain = self.calculateScore()
+            newScore = self.calculateScore()
+            if newScore >= oldScore:
+              bestGain = newScore - oldScore
               bestSwap = (participant1, participant2)
             self.swapIndividuals(participant1, participant2)
     # Only swap if we there is a better swap to make.
     if bestSwap[0] != None:
       self.swapIndividuals(bestSwap[0], bestSwap[1])
+    return bestGain
