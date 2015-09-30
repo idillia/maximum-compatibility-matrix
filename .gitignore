@@ -2,3 +2,4 @@ compat.pyc
 __init__.pyc compat.pyc
 *.pyc
 .DS_Store
+grouper/spikes
