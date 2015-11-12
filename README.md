@@ -2,8 +2,12 @@
 
 ##Current State
 
+###Requirements
+
+- `pip install names` - Requires `names` to generate random sample data.
+
 ###CSV Format
-1. A = Affinity
+1. E = Affinity
 1. I = Interpersonal Refusal
 1. T = Technical Refusal
 1. First row should be header with individual's names.
@@ -35,6 +39,8 @@ Groups of groups. This class also has a scoring function (Strategy) which return
 
 ####Strategy
 
+*Not yet implemented*
+
 Has knowledge of a class (Group, Arrangement). Registered by the class so that the class knows how to score and/or run. (We might need different Strategy classes for Groups and Arrangements.)
 
 1. Design an individual
@@ -49,11 +55,6 @@ Has knowledge of a class (Group, Arrangement). Registered by the class so that t
 
 ##Meanwhile...
 
-1. Define a standard CSV input.
-  1. A = Affinity
-  1. I = Interpersonal Refusal
-  1. T = Technical Refusal
-  1. First row should be header with individual's names.
-  1. First column should be transpose of first row.
 1. Define constants so values/weights can be easily modified.
 1. Define constants for filenames.
+1. Decouple

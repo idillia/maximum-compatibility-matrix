@@ -1,3 +1,4 @@
+import json
 import copy
 import time
 from grouper.csv2json import csv2json
@@ -9,8 +10,8 @@ from grouper.arrangement2csv import arrangement2csv
 
 # Constants
 OUTPUT_FILENAME = "arrangement" # Right now, it will write to file the top 3 scoring arrangements
-OUTPUT_FOLDER = '/Users/eihli/Projects/private_sample_data/hr33/thesis' # Rename this to your folder (or empty string '' to use current directory)
-INPUT_CSV_FILENAME = "/Users/eihli/Projects/private_sample_data/hr33/thesis/hr33.csv" # Rename this to your CSV file. View readme for formatting rules.
+OUTPUT_FOLDER = '/Users/eihli/Projects/grouper/sample_data' # Rename this to your folder (or empty string '' to use current directory)
+# INPUT_CSV_FILENAME = "/Users/eihli/Projects/grouper/sample_data/class.csv" # Rename this to your CSV file. View readme for formatting rules.
 TIMEOUT = 300 # in seconds
 NUM_ITERATIONS = 10 # Higher number gives better groups but takes longer.
 # NUM_PARTICIPANTS_PER_GROUP = 3 # This isn't working yet.
@@ -54,7 +55,10 @@ def swapUnhappiest(arrangement):
 #--------------- Run ----------------------------------#
 
 # Convert CSV
-jsonArrangement = csv2json(INPUT_CSV_FILENAME)
+# jsonArrangement = csv2json(INPUT_CSV_FILENAME)
+
+with open('grouper/sample_data/class40participants.json') as csvFile:
+  jsonArrangement = json.dumps(json.load(csvFile))
 
 print jsonArrangement;
 
