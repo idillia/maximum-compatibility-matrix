@@ -14,22 +14,21 @@ def csv2json(filename, writeToFile = False):
   }
 
   responseMap = {
-    "A": result["affinities"],
+    "E": result["affinities"],
     "I": result["interpersonal_refusals"],
     "T": result["technical_refusals"]
   }
   # Get the names of each person from the header.
-  reader.next()
-  header = reader.next().strip().split(',')[1:]
+  header = reader.next().strip().split(',')[2:]
   # print "header lenght" + str(len(header))
   for survey in result:
     for name in header:
       result[survey][name] = []
-  # print result
+  print result
 
   for row in reader:
-    row = row.strip().split(',')
-    name = row[0]
+    row = row.strip().split(',')[1:]
+    name = row[0].strip()
     print row
     row = row[1:]
     print row
@@ -40,13 +39,13 @@ def csv2json(filename, writeToFile = False):
           if not responseMap[char][name]:
             responseMap[char][name] = []
           responseMap[char][name].append(header[i])
-  # print result
-  # print json.dumps(result, indent=2, separators=(',', ': '))
+  print result
+  print json.dumps(result, indent=2, separators=(',', ': '))
 
   # Write to file if we want to save the json object.
   # Otherwise, simply return it.
   if writeToFile == True:
-    f = open('/Users/eihli/Projects/private_sample_data/class.json', 'w')
+    f = open('/Users/eihli/Projects/private_sample_data/hr32/thesis/class.json', 'w')
     f.write(json.dumps(result, indent=2, separators=(',', ': ')))
   return json.dumps(result, indent=2, separators=(',', ': '))
 

@@ -4,7 +4,7 @@ import random
 from strategy import Strategy
 from participant import Participant
 from group import Group
-NUM_INDIVIDUALS_PER_GROUP = 3
+NUM_INDIVIDUALS_PER_GROUP = 4
 
 class Arrangement:
   
@@ -15,15 +15,18 @@ class Arrangement:
       self.readParticipantsFromFile(filename)
     if (jsonString):
       self.loadParticipantsFromJson(jsonString)
-    self.numGroups = int(math.floor(len(self.participants) / NUM_INDIVIDUALS_PER_GROUP))
+    self.numGroups = int(math.ceil(1.0 * len(self.participants) / NUM_INDIVIDUALS_PER_GROUP))
     self.assignParticipantsToGroups(self.numGroups)
     self.strategy = Strategy(self)
     self.score = None
 
   def __repr__(self):
     result = ''
+    averageGroupScore = reduce(lambda x, y: x + y.getScore(), self.groups, 0) / self.numGroups
+    print averageGroupScore
     i = 0
-    result += "Arrangement with Score: " + str(self.score) + '\n'
+    result += "Arrangement with Score: " + str(self.score) + " "
+    result += "with average score: " + str(averageGroupScore) + '\n'
     result += 'Participants:\n'
     for participant in self.participants:
       result += participant.name + ', '
@@ -88,8 +91,9 @@ class Arrangement:
 
 
   def assignParticipantsToGroups(self, numGroups):
-    for i in range(numGroups):
+    for i in range(self.numGroups):
       self.addGroup()
+    print "Num groups: " + str(self.numGroups)
     for i in range(len(self.participants)):
       self.addParticipantToGroup(self.participants[i], self.groups[i % numGroups])
 

@@ -9,11 +9,17 @@ from grouper.arrangement2csv import arrangement2csv
 
 # Constants
 OUTPUT_FILENAME = "arrangement" # Right now, it will write to file the top 3 scoring arrangements
-OUTPUT_FOLDER = '/Users/eihli/Projects/private_sample_data/' # Rename this to your folder (or empty string '' to use current directory)
-INPUT_CSV_FILENAME = "/Users/eihli/Projects/private_sample_data/hr32.csv" # Rename this to your CSV file. View readme for formatting rules.
+OUTPUT_FOLDER = '/Users/eihli/Projects/private_sample_data/hr33/thesis' # Rename this to your folder (or empty string '' to use current directory)
+INPUT_CSV_FILENAME = "/Users/eihli/Projects/private_sample_data/hr33/thesis/hr33.csv" # Rename this to your CSV file. View readme for formatting rules.
 TIMEOUT = 300 # in seconds
 NUM_ITERATIONS = 10 # Higher number gives better groups but takes longer.
 # NUM_PARTICIPANTS_PER_GROUP = 3 # This isn't working yet.
+
+# TODO:
+# Make work with groups of 4 with a few groups of 3.
+# Make work with data directly as it comes from google survey.
+# Write asana workflow for Shepherds
+# Make work with weights for people who select too many friends.
 
 # ------------- Genetic Algorithm. Random Swaps -------------#
 def genetic(arrangement):
@@ -50,6 +56,8 @@ def swapUnhappiest(arrangement):
 # Convert CSV
 jsonArrangement = csv2json(INPUT_CSV_FILENAME)
 
+print jsonArrangement;
+
 arrangements = [Arrangement(jsonString = jsonArrangement) for x in range(NUM_ITERATIONS)]
 for arrangement in arrangements:
   arrangement.randomizeGroups()
@@ -61,6 +69,6 @@ for arrangement in arrangements:
   results = sorted(results, key = lambda x: x.score)
   print results[-3:]
 
-# Save to file
-for i in range(1, 4):
+# # Save to file
+for i in range(1, 5):
   arrangement2csv(results[-i], OUTPUT_FOLDER + OUTPUT_FILENAME + '_' + str(i) + '.csv')

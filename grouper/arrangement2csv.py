@@ -24,46 +24,28 @@ def arrangement2csv(arrangement, filename = 'test.csv'):
             # array.push('')
 
   result = []
-  # get a list of participants in order of groups
   participants = []
+  i = 0
+  result.append("Arrangement with score: " + str(arrangement.score) + " with average score " + str(arrangement.score / arrangement.numGroups) + "\n")
   for group in arrangement.groups:
     for participant in group.participants:
       participants.append(participant)
-  # for each group in arrangement.groups
   for group in arrangement.groups:
-    # for each participant in group.participants as participant1
+    result.append("Group " + str(i) + ": Score " + str(group.getScore()))
+    i += 1
     for participant1 in group.participants:
-      # start a new array for this participants affinities
       surveyAnswers = [participant1.name]
-      # for each participant in all participants as participant2
       for participant2 in participants:
-        # if participant1 != participant2
         if participant1 == participant2:
           surveyAnswers.append('N/A')
         else:
-          # for each survey type
           surveyResponse = ''
           for surveyType in range(len(surveyTypes)):
-            # if surveyType[participant1] contains participant2
             if participant2 in participant1[surveyTypes[surveyType]]:
-              # print participant2.name + ' is in ' + participant1.name + "'s " + surveyTypes[surveyType]
-              # array.push(surveyScore[surveyType])
               surveyResponse += surveyScores[surveyTypes[surveyType]]
-              # print surveyResponse
           surveyAnswers.append(surveyResponse)
-
-      # join array with commas
-      # print surveyAnswers
       result.append(','.join(surveyAnswers))
-      # append to result string with newline at end
-  i = 0
-  for group in arrangement.groups:
-    result.append("Group " + str(i) + ": ")
-    ps = []
-    for participant in group.participants:
-      ps.append(participant.name)
-    result.append(', '.join(ps))
-    i+=1
+    result[-1] += "\n"
   # print '\n'.join(result)
   f = open(filename, 'w')
   f.write('\n'.join(result))
