@@ -56,7 +56,7 @@ def swapUnhappiest(arrangement):
 
 # Convert CSV
 jsonArrangement = csv2json(INPUT_CSV_FILENAME)
-# uncomment the following two line to run with sample data
+# uncomment the following two line to run with sample data and comment the line above
 # with open('grouper/sample_data/class40participants.json') as csvFile:
 # jsonArrangement = json.dumps(json.load(csvFile))
 
