@@ -11,7 +11,7 @@ from grouper.arrangement2csv import arrangement2csv
 # Constants
 OUTPUT_FILENAME = "arrangement" # Right now, it will write to file the top 3 scoring arrangements
 OUTPUT_FOLDER = '/Users/eihli/Projects/grouper/sample_data' # Rename this to your folder (or empty string '' to use current directory)
-# INPUT_CSV_FILENAME = "/Users/eihli/Projects/grouper/sample_data/class.csv" # Rename this to your CSV file. View readme for formatting rules.
+INPUT_CSV_FILENAME = "/Users/eihli/Projects/grouper/sample_data/class.csv" # Rename this to your CSV file. View readme for formatting rules.
 TIMEOUT = 300 # in seconds
 NUM_ITERATIONS = 10 # Higher number gives better groups but takes longer.
 # NUM_PARTICIPANTS_PER_GROUP = 3 # This isn't working yet.
