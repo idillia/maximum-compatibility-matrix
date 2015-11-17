@@ -32,7 +32,7 @@ def csv2json(filename, writeToFile = False):
     print row
     row = row[1:]
     print row
-    for i in range(len(row)):
+    for i in range(len(row)-1):
       cell = str(row[i]).strip()
       for char in cell:
         if char in responseMap:
